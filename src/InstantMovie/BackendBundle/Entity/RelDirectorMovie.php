@@ -1,0 +1,114 @@
+<?php
+
+namespace InstantMovie\BackendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RelDirectorMovie
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class ReldDirectorMovie
+{
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
+     */
+    private $movieId;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Director")
+     */
+    private $directorId;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
+     */
+    private $dateMovie;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set movieId
+     *
+     * @param integer $movieId
+     * @return RelDirectorMovie
+     */
+    public function setMovieId(\InstantMovie\BackendBundle\Entity\Movie $movieId)
+    {
+        $this->movieId = $movieId;
+
+        return $this;
+    }
+
+    /**
+     * Get movieId
+     *
+     * @return integer 
+     */
+    public function getMovieId()
+    {
+        return $this->movieId;
+    }
+
+    /**
+     * Set directorId
+     *
+     * @param integer $directorId
+     * @return RelDirectorMovie
+     */
+    public function setDirectorId(\InstantMovie\BackendBundle\Entity\Director $directorId)
+    {
+        $this->directorId = $directorId;
+
+        return $this;
+    }
+
+    /**
+     * Get directorId
+     *
+     * @return integer 
+     */
+    public function getDirectorId()
+    {
+        return $this->directorId;
+    }
+
+    /**
+     * Set dateMovie
+     *
+     * @param \DateTime $dateMovie
+     * @return RelDirectorMovie
+     */
+    public function setDateMovie(\InstantMovie\BackendBundle\Entity\Movie $dateMovie)
+    {
+        $this->dateMovie = $dateMovie;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMovie
+     *
+     * @return \DateTime 
+     */
+    public function getDateMovie()
+    {
+        return $this->dateMovie;
+    }
+
+
+}
