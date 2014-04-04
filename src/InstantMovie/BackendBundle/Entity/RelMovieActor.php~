@@ -13,67 +13,33 @@ use Doctrine\ORM\Mapping as ORM;
 class RelMovieActor
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
-    private $id;
+    protected $movieId;
 
     /**
-     * @var integer
-     * @ORM\Column(name="movie_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
+   
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Actor")
      */
-    private $movieId;
+    protected $actorId;
 
     /**
-     * @var integer
-     * @ORM\Column(name="actor_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Actor.php")
-     */
-    private $actorId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="valoration", type="integer")
-     */
-    private $valoration;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comment", type="string", length=1000)
-     */
-    private $comment;
-
-    /**
-     * @var \DateTime
+     * @ORM\Id
      * @ORM\Column(name="date_movie")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
-    private $dateMovie;
-
+    protected $dateMovie;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set movieId
-     *
-     * @param integer $movieId
-     * @return RelMovieActor
-     */
-    public function setMovieId($movieId)
+   
+    public function setMovieId(\InstantMovie\BackendBundle\Entity\Movie $movieId)
     {
         $this->movieId = $movieId;
 
@@ -96,7 +62,7 @@ class RelMovieActor
      * @param integer $actorId
      * @return RelMovieActor
      */
-    public function setActorId($actorId)
+    public function setActorId(\InstantMovie\BackendBundle\Entity\Actor $actorId)
     {
         $this->actorId = $actorId;
 
@@ -113,60 +79,13 @@ class RelMovieActor
         return $this->actorId;
     }
 
-    /**
-     * Set valoration
-     *
-     * @param integer $valoration
-     * @return RelMovieActor
-     */
-    public function setValoration($valoration)
-    {
-        $this->valoration = $valoration;
-
-        return $this;
-    }
-
-    /**
-     * Get valoration
-     *
-     * @return integer 
-     */
-    public function getValoration()
-    {
-        return $this->valoration;
-    }
-
-    /**
-     * Set comment
-     *
-     * @param string $comment
-     * @return RelMovieActor
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Get comment
-     *
-     * @return string 
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-
    /**
      * Set dateMovie
      *
      * @param \DateTime $dateMovie
      * @return RelMovieActor
      */
-    public function setDateMovie($dateMovie)
+    public function setDateMovie(\InstantMovie\BackendBundle\Entity\Movie $dateMovie)
     {
         $this->dateMovie = $dateMovie;
 

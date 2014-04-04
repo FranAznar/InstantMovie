@@ -7,31 +7,21 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RelUserMovie
  *
- * @ORM\Table()
+ * @ORM\Table(name="user_movie")
  * @ORM\Entity
  */
 class RelUserMovie
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
-     * @var integer
-     * @ORM\Column(name="user_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\User.php")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\User")
      */
     private $userId;
 
     /**
-     * @var integer
-     * @ORM\Column(name="movie_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
     private $movieId;
 
@@ -45,29 +35,16 @@ class RelUserMovie
     /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="string", length="1000")
+     * @ORM\Column(name="comment", type="string", length=1000)
      */
     private $comment;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="valoration", type="integer")
+     * @ORM\Column(name="valoration", type="integer", length=2)
      */
     private $valoration;
-
-
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set userId
@@ -75,7 +52,7 @@ class RelUserMovie
      * @param integer $userId
      * @return RelUserMovie
      */
-    public function setUserId($userId)
+    public function setUserId(\InstantMovie\BackendBundle\Entity\User$userId)
     {
         $this->userId = $userId;
 
@@ -98,7 +75,7 @@ class RelUserMovie
      * @param integer $movieId
      * @return RelUserMovie
      */
-    public function setMovieId($movieId)
+    public function setMovieId(\InstantMovie\BackendBundle\Entity\User$movieId)
     {
         $this->movieId = $movieId;
 
@@ -154,12 +131,34 @@ class RelUserMovie
     /**
      * Get valoration
      *
-     * @return string 
+     * @return integer 
      */
     public function getValoration()
     {
         return $this->valoration;
     }
 
-	
+   /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return RelUserMovie
+     */
+
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string 
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 }

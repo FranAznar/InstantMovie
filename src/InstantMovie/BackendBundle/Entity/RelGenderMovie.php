@@ -13,38 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class RelGenderMovie
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var integer
-     * @ORM\Column(name="type_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Gender.php")
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Gender")
      */
     private $typeId;
 
     /**
-     * @var integer
-     * @ORM\Column(name="movie_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
     private $movieId;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set typeId
@@ -52,7 +30,7 @@ class RelGenderMovie
      * @param integer $typeId
      * @return RelGenderMovie
      */
-    public function setTypeId($typeId)
+    public function setTypeId(\InstantMovie\BackendBundle\Entity\Gender $typeId)
     {
         $this->typeId = $typeId;
 
@@ -75,7 +53,7 @@ class RelGenderMovie
      * @param integer $movieId
      * @return RelGenderMovie
      */
-    public function setMovieId($movieId)
+    public function setMovieId(InstantMovie\BackendBundle\Entity\Movie $movieId)
     {
         $this->movieId = $movieId;
 

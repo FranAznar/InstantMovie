@@ -13,32 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class ReldDirectorMovie
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var integer
-     * @ORM\Column(name="movie_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
     private $movieId;
 
     /**
-     * @var integer
-     * @ORM\Column(name="director_id")
-     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Director.php")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Director")
      */
     private $directorId;
 
     /**
-     * @var \DateTime
-     * @ORM\Column(name="date_movie")
-     * @ORM\Column(name="date_movie", type="datetime")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
     private $dateMovie;
 
@@ -59,7 +47,7 @@ class ReldDirectorMovie
      * @param integer $movieId
      * @return RelDirectorMovie
      */
-    public function setMovieId($movieId)
+    public function setMovieId(\InstantMovie\BackendBundle\Entity\Movie $movieId)
     {
         $this->movieId = $movieId;
 
@@ -82,7 +70,7 @@ class ReldDirectorMovie
      * @param integer $directorId
      * @return RelDirectorMovie
      */
-    public function setDirectorId($directorId)
+    public function setDirectorId(\InstantMovie\BackendBundle\Entity\Director $directorId)
     {
         $this->directorId = $directorId;
 
@@ -105,7 +93,7 @@ class ReldDirectorMovie
      * @param \DateTime $dateMovie
      * @return RelDirectorMovie
      */
-    public function setDateMovie($dateMovie)
+    public function setDateMovie(\InstantMovie\BackendBundle\Entity\Movie $dateMovie)
     {
         $this->dateMovie = $dateMovie;
 
