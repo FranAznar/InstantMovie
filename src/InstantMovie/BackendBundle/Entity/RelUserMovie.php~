@@ -42,6 +42,22 @@ class RelUserMovie
      */
     private $publicationDate;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length="1000")
+     */
+    private $comment;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="valoration", type="integer")
+     */
+    private $valoration;
+
+
+
 
     /**
      * Get id
@@ -121,4 +137,29 @@ class RelUserMovie
     {
         return $this->publicationDate;
     }
+
+    /**
+     * Set valoration
+     *
+     * @param string $valoration
+     * @return RelUserMovie
+     */
+    public function setValoration($valoration)
+    {
+        $this->valoration = $valoration;
+
+        return $this;
+    }
+
+    /**
+     * Get valoration
+     *
+     * @return string 
+     */
+    public function getValoration()
+    {
+        return $this->valoration;
+    }
+
+	
 }

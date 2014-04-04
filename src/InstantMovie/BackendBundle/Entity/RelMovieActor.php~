@@ -50,7 +50,7 @@ class RelMovieActor
     private $comment;
 
     /**
-     * @var datetime
+     * @var \DateTime
      * @ORM\Column(name="date_movie")
      * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
      */

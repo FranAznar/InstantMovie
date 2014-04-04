@@ -36,26 +36,11 @@ class RelMovieActor
     private $actorId;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="valoration", type="integer")
-     */
-    private $valoration;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comment", type="string", length=1000)
-     */
-    private $comment;
-
-    /**
      * @var \DateTime
      * @ORM\Column(name="date_movie")
      * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie.php")
      */
     private $dateMovie;
-
 
     /**
      * Get id
@@ -112,53 +97,6 @@ class RelMovieActor
     {
         return $this->actorId;
     }
-
-    /**
-     * Set valoration
-     *
-     * @param integer $valoration
-     * @return RelMovieActor
-     */
-    public function setValoration($valoration)
-    {
-        $this->valoration = $valoration;
-
-        return $this;
-    }
-
-    /**
-     * Get valoration
-     *
-     * @return integer 
-     */
-    public function getValoration()
-    {
-        return $this->valoration;
-    }
-
-    /**
-     * Set comment
-     *
-     * @param string $comment
-     * @return RelMovieActor
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Get comment
-     *
-     * @return string 
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
 
    /**
      * Set dateMovie
