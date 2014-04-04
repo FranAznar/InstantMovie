@@ -57,7 +57,7 @@ class ReldDirectorMovie
      * Set movieId
      *
      * @param integer $movieId
-     * @return RelDirectorMovie
+     * @return Ref_director_movie
      */
     public function setMovieId($movieId)
     {
@@ -80,7 +80,7 @@ class ReldDirectorMovie
      * Set directorId
      *
      * @param integer $directorId
-     * @return RelDirectorMovie
+     * @return Ref_director_movie
      */
     public function setDirectorId($directorId)
     {
@@ -103,7 +103,7 @@ class ReldDirectorMovie
      * Set dateMovie
      *
      * @param \DateTime $dateMovie
-     * @return RelDirectorMovie
+     * @return Ref_director_movie
      */
     public function setDateMovie($dateMovie)
     {

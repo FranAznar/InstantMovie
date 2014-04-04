@@ -50,7 +50,7 @@ class RelGenderMovie
      * Set typeId
      *
      * @param integer $typeId
-     * @return RelGenderMovie
+     * @return Ref_gender_movie
      */
     public function setTypeId($typeId)
     {
@@ -73,7 +73,7 @@ class RelGenderMovie
      * Set movieId
      *
      * @param integer $movieId
-     * @return RelGenderMovie
+     * @return Ref_gender_movie
      */
     public function setMovieId($movieId)
     {
