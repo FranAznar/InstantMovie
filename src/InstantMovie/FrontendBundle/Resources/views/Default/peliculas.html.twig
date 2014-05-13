@@ -1,0 +1,28 @@
+{# src/InstantMovie/BackendBundle/Resources/views/Default/peliculas.html.twig #}
+{% extends '::frontend.html.twig' %}
+
+{% block title%} Selecionar Modo {% endblock %}
+{% block id 'peliculas' %}
+
+    {% block contenido %}
+        <div id="modos"></div>
+            <div id="opcion1" class="panel pull-left span6">
+               <a class="btn btn-lg btn-danger btn-peli" role="button" href="/app.php/user/mnormal">Modo Normal</a>
+                <div id= "normal-img" class="panel imagen">
+                    <img class="img-rounded" alt="" width="100%" height="100%" src="{{ asset('bundles/frontend/images/background.jpg') }}">
+                </div>
+                <div id= "normal-txt" class="panel txt">
+<p class="normal">El Modo Normal te proporciona la opcion de elegir desde un catalogo la pelicula que deseas visualizar,completamente a su elección</p>
+                </div>
+            </div>
+            <div id="opcion2" class="panel pull-right span6">
+                <a class="btn btn-lg btn-primary btn-peli" role="button" href="/app.php/user/mrandom">Modo Aleatorio</a>
+                <div id= "random-img"class="panel imagen">
+                    <img class="img-rounded" alt="" width="100%" height="100%" src="{{ asset('bundles/frontend/images/option1.jpg') }}">
+                </div>
+                <div id= "random-txt" class="panel txt">
+<p class="aleatorio">El Modo Aleatorio te facilita la elección del film que desea ver, simplemente dejate llevar por la elección que te proporciona nuestro sistema de fast-cinema</p>
+                </div>
+            </div>
+        </div>
+{% endblock %}

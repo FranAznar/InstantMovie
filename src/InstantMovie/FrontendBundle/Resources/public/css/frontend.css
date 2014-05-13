@@ -1,0 +1,468 @@
+/*html{overflow:hidden;}*/
+
+body{
+position:relative;
+width:1500px;
+height:880px;
+left:10%;
+}
+
+#contenedor{
+position:relative;
+width:100%;
+height:100%;
+
+}
+
+article{
+width:100%;
+height:100%;
+
+}
+
+/*Seccion Peliculas*/
+#peliculas.custom-background {
+background: -webkit-linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* For Firefox 3.6 to 15 */
+background: linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* Standard syntax (must be last) */
+}
+
+#opcion1{
+background-color:black;
+background-position: 10%;
+width:48%;
+height:99%;
+}
+
+#opcion2{
+background-color: black;
+background-position: 10%;
+width:48%;
+height:99%;
+}
+
+.btn-peli{
+width:100%;
+height: 10%;
+text-align:center;
+}
+
+.normal{
+color:red;
+font-family: Impact;
+}
+
+.aleatorio{
+color:blue;
+font-family: Impact;
+}
+
+.imagen{
+position:relative;
+background-color: white;
+top: 1%;
+height: 40%;
+}
+
+.txt{
+position:relative;
+background-color: black;
+top:-1%;
+height: 47%;
+}
+
+/*Portada*/
+#trailer{
+position:relative;
+background-color: #819FF7;
+
+width:75%;
+height: 40%;
+}
+
+#noticias{
+float:left;
+position:relative;
+background-color: #819FF7;
+width:75%;
+height: 58%;
+
+}
+
+#cajaTrailer{
+float:left;
+position:relative;
+width:49%;
+height: 98%;
+top: 1%;
+left:0.7%;
+background-color:black;
+}
+
+#menuLateral{
+float:right;
+position:relative;
+width: 23%;
+height: 100%;
+background-color: #819FF7;
+
+}
+
+#cajaSynapsis{
+float:right;
+position:relative;
+width:49%;
+height:98%;
+top: 1%;
+left:-0.7%;
+background-color:white;
+}
+
+/*reproductor*/
+#reproductor{
+position:relative;
+left: 1%;
+top: 1%;
+}
+
+
+
+/*Perfil*/
+.form-perfil{
+position:relative;
+top:0%;
+}
+
+/* Historial*/
+.div-historial{
+position:relative;
+top: 0%;
+}
+
+.historialButon{
+width:100%;
+background-color:#A9D0F5;
+}
+
+.historialNavbar{
+position:relative;
+top: 16%;
+height:50%;
+}
+
+.div-historial{
+height:90%;
+}
+
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+/*Normal Mode*/
+
+#catalogoView{
+float:left;
+position:relative;
+width:74%;
+height:99%;
+background-color:#819FF7;
+}
+
+#catalogoLista{
+overflow:scroll;
+float:right;
+position:relative;
+width:24%;
+height:99%;
+background-color:#819FF7;
+}
+
+#imagenMovie{
+float:left;
+position:relative;
+width:39%;
+height:39%;
+left:1%;
+top: 1%;
+background-color:#F78181;
+}
+
+#comentsMovie{
+float:left;
+position:relative;
+width:39%;
+height:58%;
+background-color:#A9F5A9;
+left: 1%;
+top: 2%;
+}
+
+#infoMovie{
+float:right;
+position:relative;
+width:58%;
+height: 98%;
+background-color:#EFF8FB;
+top: 1%;
+left:-1%;
+}
+
+#puntuacion{
+float:right;
+position:relative;
+width:10%;
+height:7%;
+background-color:#A4A4A4;
+top:-9.3%;
+left: -0.5%;
+}
+
+/*View Movies Modo Normal*/
+
+#viewMovie{
+position:relative;
+width: 98%;
+height: 100%;
+left: -7%;
+}
+
+#reparto{
+position: relative;
+width: 100%;
+height: 23%;
+background-color:#A9D0F5;
+
+}
+
+#synapsis{
+position: relative;
+width:100%;
+height: 75%;
+background-color: white;
+top: -2%;
+}
+
+/*Comments page*/
+
+#botonComent {
+position:relative;
+left:80%;
+}
+
+#textarea{
+top:2%;
+position:relative;
+width: 70%;
+height:10%;
+left:10%;
+background-color:white;
+}
+
+#comentario{
+position:relative;
+width: 70%;
+height: 10%;
+background-color: #A9D0F5;
+top:10%;
+margin-top: 3%;
+left:10%;
+}
+
+/*Estilos Mrandom*/
+
+#random{
+position:relative;
+
+width: 100%;
+height: 49%;
+top: 0%;
+background-color:#A9D0F5;
+
+}
+#matizar{
+
+position:relative;
+width: 100%;
+height: 49%;
+background-color:#A9D0F5;
+top: 0%;
+}
+
+.imagenRandom{
+position:relative;
+left:22%;
+top:-105%;
+width:78%;
+height:100.5%;
+}
+
+.infoModo{
+position:relative;
+width:21.6%;
+height:100%;
+
+}
+
+#enlaces{
+position:relative;
+background-color:#A9D0F5;
+width: 100%;
+height: 100%;
+
+}
+
+.blockNotas{
+float:right;
+position:relative;
+width: 75%;
+height: 96%;
+left:-1%;
+top:2%;
+
+}
+
+.infoUrl{
+float:left;
+position:relative;
+width:22%;
+height:96%;
+top:2%;
+left:1%;
+
+}
+
+.btn-matizar{
+position:relative;
+width: 90%;
+left:6%;
+}
+
+.matizar{
+position:relative;
+width: 90%;
+border:2px solid;
+border-radius:6px;
+height:12%;
+margin-top:10%;
+left:6%;
+
+}
+
+/*pagina de Enlaces*/
+
+.enlacePanel{
+position:relative;
+background-color:#A9D0F5;
+width:70%;
+left:16%;
+top:35%;
+padding: 2%;
+border:2px solid;
+border-radius:25px;
+}
+
+.url{
+position:relative;
+left:35%;
+
+}
+
+/*Subir Peliculas*/
+
+.panel-Upload{
+float:left;
+position:relative;
+width: 40%;
+left:0%;
+height: 100%;
+}
+
+#input-group{
+position:relative;
+margin-bottom:9%;
+
+
+}
+
+#formUpload{
+position:relative;
+height: 100%;
+
+}
+
+.form-control{
+position:relative;
+top: 3%;
+
+}
+
+#plantilla{
+float:right;
+position:relative;
+width: 55%;
+height: 100%;
+left: 6%;
+}
+
+#plantilla-img{
+position:relative;
+float:left;
+background-color:#A9E2F3;
+width:30%;
+height:28%;
+}
+
+#plantilla-info{
+position:relative;
+float:right;
+background-color:#A9E2F3;
+width:60%;
+height:28%;
+left:-9%;
+}
+
+#plantilla-comment{
+position:relative;
+float:left;
+background-color:#A9E2F3;
+width:30%;
+height:45%;
+top:-1.5%;
+
+}
+
+#plantilla-synopsis{
+position:relative;
+float:right;
+background-color:#A9E2F3;
+width:60%;
+height:45%;
+left:-9%;
+top:-1.5%;
+
+}
+
+.focusUpload{
+ background-color:red;
+}
+
+
+
+

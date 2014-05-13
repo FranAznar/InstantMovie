@@ -1,0 +1,80 @@
+# InstantMovie/BackendBundle/Resources/config/admin.yml
+services:
+    sonata.admin.user:
+        class: InstantMovie\BackendBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "AdminPanel", label: "User" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\User
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+
+    sonata.admin.actor:
+        class: InstantMovie\BackendBundle\Admin\ActorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "AdminPanel", label: "Actor" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\Actor
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+
+    sonata.admin.director:
+        class: InstantMovie\BackendBundle\Admin\DirectorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "AdminPanel", label: "Director" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\Director
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+
+    sonata.admin.movie:
+        class: InstantMovie\BackendBundle\Admin\MovieAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "AdminPanel", label: "Movie" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\Movie
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+
+    sonata.admin.gender:
+        class: InstantMovie\BackendBundle\Admin\GenderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "AdminPanel", label: "Gender" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\Gender
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+
+    sonata.admin.country:
+        class: InstantMovie\BackendBundle\Admin\CountryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "AdminPanel", label: "Country" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\Country
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+
+
+    sonata.admin.relusermovie:
+        class: InstantMovie\BackendBundle\Admin\RelUserMovieAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Interactions", label: "Comentaris and Valorations" }
+        arguments:
+            - ~
+            - InstantMovie\BackendBundle\Entity\RelUserMovie
+            - ~
+        calls:
+            - [ setTranslationDomain, [BackendBundle]]
+

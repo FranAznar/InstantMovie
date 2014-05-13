@@ -1,0 +1,41 @@
+{# app/Resources/views/frontend.html.twig#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        {% block stylesheets %}
+    <link href="{{ asset('bundles/frontend/css/frontend.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/frontend/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/frontend/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+        {% endblock %}
+    </head>
+     <body id="loguer">
+
+    <div id="cajaPrincipal" class="jumbotron">
+        <div id="login" class="panel panel-info">
+            
+        </div>
+
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Logueate</h3>
+            </div>
+            <div id="registrar" class="panel-body">
+            {{ render(controller('FrontendBundle:RegistrosyPerfiles:cajaLogin')) }} 
+            </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Bievenido a Instant Movie</h3>
+            </div>
+            <div id="registrar" class="panel-body">
+             {{ render(controller('FrontendBundle:RegistrosyPerfiles:login')) }}
+            </div>
+    </div>
+
+    {% block javascripts %}{% endblock %}
+        </div>
+    </body>
+</html>

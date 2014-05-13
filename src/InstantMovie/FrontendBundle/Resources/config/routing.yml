@@ -1,3 +1,87 @@
-frontend_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: FrontendBundle:Default:index }
+usuario_login:
+    path:   /
+    defaults: { _controller: FrontendBundle:RegistrosyPerfiles:loguer }
+
+usuario_login_check:
+    path: /user/login_check
+
+usuario_logout:
+    path: /logout
+    #Perfiles y Registros
+
+usuario_registro:
+    path: /user/registro
+    defaults: { _controller: FrontendBundle:RegistrosyPerfiles:registro }
+
+usuario_perfil:
+    path: /user/perfil
+    defaults: { _controller: FrontendBundle:RegistrosyPerfiles:perfil }
+
+
+
+pagina_historial:
+    path: /user/historial/{user_id}
+    defaults: { _controller: FrontendBundle:Historial:historial }
+
+historial_peliculas:
+    path: /user/historialPeliculas/{user_id}
+    defaults: { _controller: FrontendBundle:Historial:historialPeliculas}
+
+
+
+
+
+pagina_enlaces:
+    path: /user/enlaces/{movie_id}{user_id}
+    defaults: { _controller: FrontendBundle:ModoNormal:enlaces }
+
+pagina_peliculas:
+    path: /user/peliculas
+    defaults: { _controller: FrontendBundle:ModoNormal:peliculas }
+
+pagina_mnormal:
+    path: /user/mnormal
+    defaults: { _controller: FrontendBundle:ModoNormal:mnormal } 
+
+mnormal_ajax:
+    path: /user/mnormalAjax
+    defaults: { _controller: FrontendBundle:ModoNormal:mnormalAjax } 
+
+introducir_Puntuacion:
+    path: /user/introducirPuntuacion
+    defaults: { _controller: FrontendBundle:ModoNormal:introducirPuntuacion }
+
+
+
+
+pagina_upload:
+    path: /user/upload
+    defaults: { _controller: FrontendBundle:Upload:upload }
+
+
+
+pagina_mrandom:
+    path: /user/mrandom
+    defaults: { _controller: FrontendBundle:ModoRandom:mrandom }
+
+    #Comentarios
+
+pagina_random:
+    path: /user/random
+    defaults: { _controller: FrontendBundle:ModoRandom:random }
+
+pagina_matizar:
+    path: /user/matizar
+    defaults: { _controller: FrontendBundle:ModoRandom:matizar }
+
+
+pagina_comentarios:
+    path: /user/comentarios/{movie_id}
+    defaults: { _controller: FrontendBundle:Comentarios:comentarios }
+    
+comentarios_ajax:
+    path: /user/comentariosAjax
+    defaults: { _controller: FrontendBundle:Comentarios:comentariosAjax }
+
+
+

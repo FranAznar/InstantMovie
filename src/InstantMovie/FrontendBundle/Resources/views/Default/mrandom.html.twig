@@ -1,0 +1,87 @@
+{# src/InstantMovie/BackendBundle/Resources/views/Default/mrandom.html.twig #}
+{% extends '::frontend.html.twig' %}
+
+{% block title%} Modo Aleatorio {% endblock %}
+{% block id 'mrandom' %}
+
+    {% block contenido %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      
+    });
+
+    function mostrarOpcionesMatizar()
+    {
+        $('#matizar').hover(function(){
+            $('.gender').fadeIn(1000);
+            $('.actor').fadeIn(1200);
+            $('.director').fadeIn(1400);
+
+        },function(){
+            $('.matizar').fadeOut(0);
+        });
+    }
+
+</script>
+
+
+            <div id="matizar" class="panel">
+                <div class ="infoModo panel ">
+                    <h3>Especificar Preferencias</h3>
+                    <ul>
+                        <li>Indicanos tus preferencias</li>
+                        <li>Matiza tus gustos</li>
+                    </ul>
+                <form action="{{path('pagina_matizar')}}" method="post">
+                <input class="btn btn-lg btn-primary btn-matizar" type="submit" value="Entrar"role="button"/>
+
+                    <select name="director" id="director" class="matizar director">
+                         <option></option>
+                        {% for movie in director %}
+                            <option value="{{movie.name}} {{movie.lastName}}">{{movie.name}} {{movie.lastName}}</option>
+                        {% endfor %}
+                    </select>
+
+
+                    <select name="gender" id="gender" class="matizar gender">
+                        <option></option>
+                        {% for movie in gender %}
+                            <option value="{{movie}}">{{movie}}</option>
+                        {% endfor %}
+                    </select>
+
+
+                    <select name="actor" id="actor" class="matizar actor">
+                         <option></option>
+                        {% for movie in actors %}
+                             <option value="{{movie.name}} {{movie.lastName}}">{{movie.name}} {{movie.lastName}}</option>
+                        {% endfor %}
+                    </select>
+
+</form>
+
+
+
+                </div>
+                <div class =" imagenRandom panel">
+                    <img class="img-rounded randomImage" alt="" width="100%" height="100%" src="{{ asset('bundles/frontend/images/matizar.jpg') }}">
+                </div>
+            </div>
+            
+            <div id="random" class="panel">
+                <div class ="infoModo panel">
+                    <h3>Dejate Llevar</h3>
+                    <ul>
+                        <li>Sientate y dejate llevar</li>
+                        <li>Nostros elegimos tu pelicula</li>
+                    </ul>
+                <a class="btn btn-lg btn-primary btn-matizar" role="button" href="{{ path('pagina_random')}}">Entrar</a>
+                </div>
+                <div class =" imagenRandom panel">
+                    <img class="img-rounded randomImage" alt="" width="100%" height="100%" src="{{ asset('bundles/frontend/images/random.jpg') }}">
+                </div>
+            </div>
+ 
+
+    {% endblock %}

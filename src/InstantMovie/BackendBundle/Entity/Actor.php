@@ -3,6 +3,7 @@
 namespace InstantMovie\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use InstantMovie\BackendBundle\Entity\Movie;
 
 /**
  * Actor
@@ -36,12 +37,9 @@ class Actor
     private $lastName;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Country")
      */
     private $country;
-
 
     /**
      * Get id
@@ -62,7 +60,6 @@ class Actor
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -99,26 +96,55 @@ class Actor
         return $this->lastName;
     }
 
-    /**
-     * Set country
-     *
-     * @param string $country
-     * @return Actor
-     */
-    public function setCountry($country)
+
+    public function setCountry(\InstantMovie\BackendBundle\Entity\Country $country)
     {
         $this->country = $country;
 
-        return $this;
     }
 
-    /**
-     * Get country
-     *
-     * @return string 
-     */
     public function getCountry()
     {
         return $this->country;
     }
+
+    /**
+     * Get Movies
+     *
+     * @return Movies
+     */
+    public function getMovie()
+    {
+        return $this->movie;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+    * Add Movies
+    *
+    * @param \InstantMovie\BackendBundle\Entity\Movie $movies
+    * @return Actor
+    */
+    public function addMovie(\InstantMovie\BackendBundle\Entity\Movie $movie)
+    {
+        $this->movie[] = $movie;
+        //$movie->addActor($this);
+        return $this;
+    }
+
+    /**
+    * Remove Movies
+    *
+    * @param \InstantMovie\BackendBundle\Entity\Movie $movies
+    */
+    public function removeMovie(\InstantMovie\BackendBundle\Entity\Movie $movie)
+    {
+        $this->movies->removeElement($movie);
+        $movie->removeActor($this); 
+    }
+
 }

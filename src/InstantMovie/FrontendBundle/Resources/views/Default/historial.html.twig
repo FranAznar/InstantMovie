@@ -1,0 +1,59 @@
+{# src/InstantMovie/BackendBundle/Resources/views/Default/historial.html.twig #}
+{% extends '::frontend.html.twig' %}
+
+{% block title%} Selecionar Modo {% endblock %}
+{% block id 'historial' %}
+
+    {% block contenido %}
+<script type="text/javascript">
+</script>
+
+<ul class="nav nav-tabs nav-perfil">
+  <li ><a href="{{path('usuario_perfil')}}">Datos del Perfil</a></li>
+  <li class="active"><a href="{{path('pagina_historial', {'user_id': app.user.id})}}">Historial</a></li>
+</ul>
+
+<div class="row div-historial">
+  <div class="col-sm-3 historialNavbar">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand">Sidebar menu</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse ">
+          <ul class="nav navbar-nav">
+            <li><a class="btn btn-lg btn" role="button" href="{{path('historial_peliculas',{'user_id': app.user.id})}}">Ver Peliculas Vistas</a></li>
+            <li><a class="btn btn-lg btn active" role="button" href="{{path('pagina_historial',{'user_id': app.user.id})}}">Ver Comentarios y Puntuaciones</a></li>
+            <li><button class="btn btn-default historialButon" type="button" onClik="">Ver Peliculas Subidas</button></li>
+            <li><button class="btn btn-default historialButon" type="button" onClik="">Borrar Historial</button></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div>
+  
+  <div class="col-sm-9">
+    <h1>Gestion de Historial</h1>
+    <h3>Bienvenido a la seccion de gestion de tu historial de visualizaciones, aqui podras consultar y gestionarlos contenidos vistos.</h3>
+  
+    <br>
+    {% for infoHistorial in historial %}
+        <ul>
+            {% if infoHistorial.comment != "" %}
+        <li class="panel historialPanel">{{infoHistorial.movie}} : {{infoHistorial.comment}} &nbsp &nbsp &nbsp {{infoHistorial.viewDate |date("m/d/Y")}}</li>
+            {% endif %}
+            {% if infoHistorial.valoration != "" %}
+        <li class="panel historialPanel">has puntuado a {{infoHistorial.movie}} con {{infoHistorial.valoration}}/10 &nbsp &nbsp &nbsp {{infoHistorial.viewDate |date("m/d/Y")}}</li>
+            {% endif %}
+           
+        </ul>
+    {% endfor %}
+  </div>
+</div> 
+    {% endblock %}

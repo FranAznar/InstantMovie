@@ -7,124 +7,149 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RelUserMovie
  *
- * @ORM\Table(name="user_movie")
+ * @ORM\Table()
  * @ORM\Entity
  */
 class RelUserMovie
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\User")
      */
-    private $userId;
+    private $user;
 
     /**
-     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\Movie")
      */
-    private $movieId;
+    private $movie;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="publication_date", type="datetime")
+     * @ORM\Column(name="viewDate", type="datetime")
      */
-    private $publicationDate;
+    private $viewDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="string", length=1000)
+     * @ORM\Column(name="comment", type="text")
      */
     private $comment;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="valoration", type="integer", length=2)
+     * @ORM\Column(name="valoration", type="integer")
      */
     private $valoration;
 
     /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return RelUserMovie
-     */
-    public function setUserId(\InstantMovie\BackendBundle\Entity\User$userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
+     * Get id
      *
      * @return integer 
      */
-    public function getUserId()
+    public function getId()
     {
-        return $this->userId;
+        return $this->id;
+    }
+
+    public function setViewDate()
+    {
+        $this->viewDate = new \DateTime("now");
     }
 
     /**
-     * Set movieId
-     *
-     * @param integer $movieId
-     * @return RelUserMovie
-     */
-    public function setMovieId(\InstantMovie\BackendBundle\Entity\User$movieId)
-    {
-        $this->movieId = $movieId;
-
-        return $this;
-    }
-
-    /**
-     * Get movieId
-     *
-     * @return integer 
-     */
-    public function getMovieId()
-    {
-        return $this->movieId;
-    }
-
-    /**
-     * Set publicationDate
-     *
-     * @param \DateTime $publicationDate
-     * @return RelUserMovie
-     */
-    public function setPublicationDate($publicationDate)
-    {
-        $this->publicationDate = $publicationDate;
-
-        return $this;
-    }
-
-    /**
-     * Get publicationDate
+     * Get viewDate
      *
      * @return \DateTime 
      */
-    public function getPublicationDate()
+    public function getViewDate()
     {
-        return $this->publicationDate;
+        return $this->viewDate;
+    }
+
+    /**
+     * Set user
+     *
+     * @param string $user
+     */
+    public function setUser(\InstantMovie\BackendBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return string 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set movie
+     *
+     * @param string $movie
+     */
+    public function setMovie(\InstantMovie\BackendBundle\Entity\Movie $movie)
+    {
+        $this->movie = $movie;
+    }
+
+    /**
+     * Get movie
+     *
+     * @return string 
+     */
+    public function getMovie()
+    {
+        return $this->movie;
+    }
+
+
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     * @return RelUserMovie
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return text 
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 
     /**
      * Set valoration
      *
-     * @param string $valoration
+     * @param integer $valoration
      * @return RelUserMovie
      */
     public function setValoration($valoration)
     {
         $this->valoration = $valoration;
-
         return $this;
     }
 
@@ -136,29 +161,5 @@ class RelUserMovie
     public function getValoration()
     {
         return $this->valoration;
-    }
-
-   /**
-     * Set comment
-     *
-     * @param string $comment
-     * @return RelUserMovie
-     */
-
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Get comment
-     *
-     * @return string 
-     */
-    public function getComment()
-    {
-        return $this->comment;
     }
 }

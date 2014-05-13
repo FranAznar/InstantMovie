@@ -1,0 +1,113 @@
+{# src/InstantMovie/BackendBundle/Resources/views/Default/upload.html.twig #}
+{% extends '::frontend.html.twig' %}
+{% block id 'upload' %}
+{% block title %}Sube tus peliculas{% endblock %}
+
+{% block contenido %}
+
+<script type="text/javascript">
+/*
+<!--$(document).ready(function(){-->
+<!--    function focus()-->
+<!--    {-->
+<!--        $('.titleUp').hover(function(){-->
+<!--            $('plantilla').addClass("focusUpload");-->
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--        $('.imageUp').hover(function(){-->
+
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--        $('.actorsUp').hover(function(){-->
+
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--        $('.directoUp').hover(function(){-->
+
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--        $('.countryUp').hover(function(){-->
+
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--        $('.synopsisUp').hover(function(){-->
+
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--        $('.dateUp').hover(function(){-->
+
+
+<!--        },function(){-->
+<!--    -->
+<!--        });-->
+
+<!--    }-->
+
+<!--});-->*/
+
+</script>
+
+<div class="panel-Upload panel" id="formUpload">
+    <form id="formUpload" action="{{path('pagina_upload')}}" method="post">
+        <div id="input-group"class="input-group titleUp">
+          <span class="input-group-addon">Titulo</span>
+          <input type="text" class="form-control" placeholder="Titulo">
+        </div>
+        <div id="input-group" class="input-group imageUp">
+          <span class="input-group-addon">Imagen</span>
+          <input type="text" class="form-control" placeholder="Imagen">
+        </div>
+        <div id="input-group" class="input-group urlUp">
+          <span class="input-group-addon">Url</span>
+          <input type="text" class="form-control" placeholder="Url">
+        </div>
+        <div id="input-group" class="input-group actorsUp">
+          <span class="input-group-addon">Actors</span>
+          <input type="text" class="form-control" placeholder="Actores">
+        </div>
+        <div id="input-group" class="input-group directoUp">
+          <span class="input-group-addon">Director</span>
+          <input type="text" class="form-control" placeholder="Director">
+        </div>
+        <div id="input-group" class="input-group countryUp">
+          <span class="input-group-addon">Pais de Procedencia</span>
+          <input type="text" class="form-control" placeholder="Pais de Procedencia">
+        </div>
+        <div id="input-group" class="input-group synopsisUp">
+          <span class="input-group-addon">Synopsis</span>
+          <input type="text" class="form-control" placeholder="Synopsis">
+        </div>
+        <div id="input-group" class="input-group dateUp">
+          <span class="input-group-addon">Fecha</span>
+          <input type="text" class="form-control" placeholder="Fecha">
+        </div>
+    </form>
+</div>
+
+<div id="plantilla">
+    <div id="plantilla-img" class="panel plantilla">img</div>
+    <div id="plantilla-info" class="panel plantilla">info</div>
+    <div id="plantilla-synopsis" class="panel plantilla"> synopsis</div>
+    <div id="plantilla-comment" class="panel plantilla">comment</div>
+</div>
+{% endblock %}
+
+

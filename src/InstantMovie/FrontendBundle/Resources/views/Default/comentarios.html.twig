@@ -1,0 +1,48 @@
+{% extends '::frontend.html.twig' %}
+{% block id 'comentarios' %}
+{% block title %}Lee y Comenta tus opiniones{% endblock %}
+
+{% block contenido %}
+
+
+<script type="text/javascript">
+function mostrarComentario(movieId,userId){
+
+    alert('entra');
+    var comment = document.getElementById('comment').value;
+
+    $.post("{{path('comentarios_ajax')}}",
+    {
+        movie_id:movieId,
+        user_id:userId,
+        comment: comment,
+    
+    })
+    .done(function(data){
+        $('#comentario').html(data);
+    });
+}
+
+function refrescarComentario(){
+    location.reload();
+}
+</script>
+
+    <ul class="nav nav-tabs nav-perfil">
+        <li><a href="{{ path('pagina_mnormal') }}">Informacion de la Pelicula</a></li>
+    </ul>
+
+    <div id="textarea">
+     <textarea class="form-control" rows="5" placeholder="Campo de texto" name="comment" id="comment"></textarea>
+     <button type="button" class="boton btn btn-lg btn-primary"  id="botonScore" onClick="mostrarComentario({{movie_id}},{{app.user.id}}); refrescarComentario();">Comentar</button>
+    </div>
+
+ {% for comments in comentarios %}
+    <div id="comentario" class ="panel">
+        {% if comments.comment != ""%}
+           <p>{{comments.user}} : {{comments.comment}}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+   
+{% endblock %}
