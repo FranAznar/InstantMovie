@@ -17,7 +17,11 @@ class DefaultController extends Controller
 # renderiza la portada
     public function portadaAction()
     {
-        return $this->render('FrontendBundle:Default:portada.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $historialCollection = $em->getRepository('BackendBundle:RelUserMovie')->findAll();
+        $uploadCollection = $em->getRepository('BackendBundle:Movie')->findAll();
+
+        return $this->render('FrontendBundle:Default:portada.html.twig', array('historial' => $historialCollection, 'uploads' => $uploadCollection));
     }
 
 # Permisos del usuario

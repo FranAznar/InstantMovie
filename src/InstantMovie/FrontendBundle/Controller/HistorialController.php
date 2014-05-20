@@ -43,5 +43,16 @@ class HistorialController extends Controller
         return $this->render('FrontendBundle:Default:historialPeliculas.html.twig', array('historial' => $historialCollection ));
     }
 
+    public function historialUploadAction(Request $query)
+    {
+        $user_id= $query->query->get('user_id');
+        $user_id = $query->get('user_id');
+
+        $em = $this->getDoctrine()->getManager();
+        $uploadsCollection = $em->getRepository('BackendBundle:Movie')->findBySubidaPor($user_id);
+
+        return $this->render('FrontendBundle:Default:historialUpload.html.twig', array('historial' => $uploadsCollection));
+    }
+
 }
 

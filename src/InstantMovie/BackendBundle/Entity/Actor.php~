@@ -60,7 +60,6 @@ class Actor
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -109,7 +108,6 @@ class Actor
         return $this->country;
     }
 
-
     /**
      * Get Movies
      *
@@ -135,7 +133,6 @@ class Actor
     {
         $this->movie[] = $movie;
         //$movie->addActor($this);
-
         return $this;
     }
 

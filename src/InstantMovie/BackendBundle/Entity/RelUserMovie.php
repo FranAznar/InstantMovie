@@ -142,7 +142,6 @@ class RelUserMovie
         return $this->comment;
     }
 
-
     /**
      * Set valoration
      *

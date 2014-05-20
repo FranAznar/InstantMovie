@@ -59,11 +59,26 @@ class ModoRandomController extends Controller
         $actors = $request->request->get('actor');
         error_log($actors);
 
-#        $em = $this->getDoctrine()->getManager();
-#        $consulta = $em->createQuery('SELECT o FROM OfertaBundle:Oferta o WHERE o.precio < 20 ORDER BY o.nombre ASC');
-#        $movies = $consulta->getResult();
+        $em = $this->getDoctrine()->getManager();
+        $movieCollection = $em->getRepository('BackendBundle:Movie')->movieWithParameters($actors, $director, $gender);
+        $movie = array();
 
-        return $this->render('FrontendBundle:Default:matizar.html.twig');
+
+        foreach($movieCollection as $movieObject)
+        {
+            if(!isset($count))
+            {
+                $count = 0;
+            }
+            $count++;
+            $movies[] = $movieObject;
+        }
+
+        $random = (int)rand(0, $count -1);
+        error_log($random);
+        $enlaceRandom = $movies[$random];
+
+        return $this->render('FrontendBundle:Default:matizar.html.twig', array('movies' => $enlaceRandom));
     }
 
 }

@@ -19,7 +19,7 @@
 function enviarVotacion(movieId,userId){
     
     var score = document.getElementById('minbeds').value;
-    var comment = "ha puntuado esta pelicula con un" +" "+ score;
+    var comment = "Ha puntuado esta pelicula con un" +" "+ score;
     $.post("{{path('introducir_Puntuacion')}}",
     {
       movie_id:movieId,
@@ -28,7 +28,6 @@ function enviarVotacion(movieId,userId){
       comment:comment,
     });
 }
-
 
 </script>
             <div id="infoMovie">
@@ -50,7 +49,7 @@ function enviarVotacion(movieId,userId){
                         </select>
                     </form>
                     <p>Puntuacion: {{ valoration }} </p>
-                    <p>Actores: {{ actors }} </p>
+                    <p>Actores: {% for actor in actores %}{{ actor.name }} {{ actor.lastName }},{% endfor %}</p>
                     <p>Directores: {{ directors }} </p>
                     <p>Origen: {{movie.country}}</p>
                 </div>

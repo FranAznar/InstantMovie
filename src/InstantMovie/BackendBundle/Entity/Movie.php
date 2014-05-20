@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Movie
  *
- * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="InstantMovie\BackendBundle\Entity\MovieRepository")
+ * @ORM\Table(name="Movie")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Movie
 {
@@ -35,9 +36,14 @@ class Movie
     private $title;
 
     /**
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\User")
+     */
+    private $subidaPor;
+
+    /**
      * @var \Date
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
@@ -114,6 +120,28 @@ class Movie
     public function getUrl()
     {
         return $this->url;
+    }
+
+
+    /**
+     * Set subidaPor
+     *
+     * @param string $subidaPor
+     * @return User
+     */
+    public function setSubidaPor(\InstantMovie\BackendBundle\Entity\User $subidaPor)
+    {
+        $this->subidaPor = $subidaPor;
+    }
+
+    /**
+     * Get subidaPor
+     *
+     * @return string 
+     */
+    public function getSubidaPor()
+    {
+        return $this->subidaPor;
     }
 
     /**

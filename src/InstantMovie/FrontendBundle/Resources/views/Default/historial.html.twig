@@ -6,11 +6,19 @@
 
     {% block contenido %}
 <script type="text/javascript">
+
+    $(document).ready(function(){
+
+      var worker = new Worker('{{ asset('bundles/backend/js/worker.js')}}');
+    });
+
 </script>
 
 <ul class="nav nav-tabs nav-perfil">
+
   <li ><a href="{{path('usuario_perfil')}}">Datos del Perfil</a></li>
   <li class="active"><a href="{{path('pagina_historial', {'user_id': app.user.id})}}">Historial</a></li>
+
 </ul>
 
 <div class="row div-historial">
@@ -29,15 +37,14 @@
         <div class="navbar-collapse collapse sidebar-navbar-collapse ">
           <ul class="nav navbar-nav">
             <li><a class="btn btn-lg btn" role="button" href="{{path('historial_peliculas',{'user_id': app.user.id})}}">Ver Peliculas Vistas</a></li>
-            <li><a class="btn btn-lg btn active" role="button" href="{{path('pagina_historial',{'user_id': app.user.id})}}">Ver Comentarios y Puntuaciones</a></li>
-            <li><button class="btn btn-default historialButon" type="button" onClik="">Ver Peliculas Subidas</button></li>
-            <li><button class="btn btn-default historialButon" type="button" onClik="">Borrar Historial</button></li>
+            <li><a class="btn btn-lg btn active" role="button" href="{{path('pagina_historial',{'user_id': app.user.id})}}">Ver Comentarios y Puntuaciones <span class="glyphicon glyphicon-eye-open"</span></a></li>
+            <li><a  class="btn btn-lg btn" role="button" href="{{path('historial_upload',{'user_id': app.user.id})}}">Ver Peliculas Subidas</a></li>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
     </div>
-  
   <div class="col-sm-9">
     <h1>Gestion de Historial</h1>
     <h3>Bienvenido a la seccion de gestion de tu historial de visualizaciones, aqui podras consultar y gestionarlos contenidos vistos.</h3>
@@ -51,7 +58,6 @@
             {% if infoHistorial.valoration != "" %}
         <li class="panel historialPanel">has puntuado a {{infoHistorial.movie}} con {{infoHistorial.valoration}}/10 &nbsp &nbsp &nbsp {{infoHistorial.viewDate |date("m/d/Y")}}</li>
             {% endif %}
-           
         </ul>
     {% endfor %}
   </div>

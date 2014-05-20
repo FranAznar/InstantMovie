@@ -1,15 +1,14 @@
 <?php
 
 namespace InstantMovie\BackendBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-use InstantMovie\BackendBundle\Entity\Actor;
 
 /**
  * Movie
  *
- * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="InstantMovie\BackendBundle\Entity\MovieRepository")
+ * @ORM\Table(name="Movie")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Movie
 {
@@ -25,14 +24,26 @@ class Movie
     /**
      * @var string
      *
+     * @ORM\Column(name="url", type="string", length=100)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="title", type="string", length=100)
      */
     private $title;
 
     /**
+     * @ORM\ManyToOne(targetEntity="InstantMovie\BackendBundle\Entity\User")
+     */
+    private $subidaPor;
+
+    /**
      * @var \Date
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="date", nullable=true)
      */
     private $date;
 
@@ -53,6 +64,13 @@ class Movie
      */
     private $synapses;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string")
+     */
+    private $image;
+
 
    /**
     * @ORM\ManyToMany(targetEntity="Actor")
@@ -61,7 +79,7 @@ class Movie
     *   inverseJoinColumns={@JoinColumn(name="actor_id", referencedColumnName="id
     *   )
     **/
-    private $actor;
+    private $actors;
 
    /**
     * @ORM\ManyToMany(targetEntity="Director")
@@ -80,6 +98,50 @@ class Movie
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return Movie
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+
+    /**
+     * Set subidaPor
+     *
+     * @param string $subidaPor
+     * @return User
+     */
+    public function setSubidaPor(\InstantMovie\BackendBundle\Entity\User $subidaPor)
+    {
+        $this->subidaPor = $subidaPor;
+    }
+
+    /**
+     * Get subidaPor
+     *
+     * @return string 
+     */
+    public function getSubidaPor()
+    {
+        return $this->subidaPor;
     }
 
     /**
@@ -103,6 +165,29 @@ class Movie
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Movie
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
@@ -167,9 +252,9 @@ class Movie
      *
      * @return actors
      */
-    public function getActor()
+    public function getActors()
     {
-        return $this->actor;
+        return $this->actors;
     }
 
     /**
@@ -230,7 +315,7 @@ class Movie
     */
     public function addActor(\InstantMovie\BackendBundle\Entity\Actor $actor)
     {
-        $this->actor[] = $actor;
+        $this->actors[] = $actor;
         //$actor->addMovie($this);
         return $this;
     }
@@ -242,7 +327,7 @@ class Movie
     */
     public function removeActor(\InstantMovie\BackendBundle\Entity\Actor $actor)
     {
-        $this->actor->removeElement($actor);
+        $this->actors->removeElement($actor);
        // $actor->removeMovie($this);
     }
 

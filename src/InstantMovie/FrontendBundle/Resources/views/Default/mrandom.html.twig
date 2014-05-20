@@ -25,7 +25,6 @@
 
 </script>
 
-
             <div id="matizar" class="panel">
                 <div class ="infoModo panel ">
                     <h3>Especificar Preferencias</h3>
@@ -39,23 +38,21 @@
                     <select name="director" id="director" class="matizar director">
                          <option></option>
                         {% for movie in director %}
-                            <option value="{{movie.name}} {{movie.lastName}}">{{movie.name}} {{movie.lastName}}</option>
+                            <option value="{{movie.id}}">{{movie.name}} {{movie.lastName}}</option>
                         {% endfor %}
                     </select>
-
 
                     <select name="gender" id="gender" class="matizar gender">
                         <option></option>
                         {% for movie in gender %}
-                            <option value="{{movie}}">{{movie}}</option>
+                            <option value="{{movie.id}}">{{movie}}</option>
                         {% endfor %}
                     </select>
-
 
                     <select name="actor" id="actor" class="matizar actor">
                          <option></option>
                         {% for movie in actors %}
-                             <option value="{{movie.name}} {{movie.lastName}}">{{movie.name}} {{movie.lastName}}</option>
+                             <option value="{{movie.id}}">{{movie.name}} {{movie.lastName}}</option>
                         {% endfor %}
                     </select>
 

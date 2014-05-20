@@ -6,108 +6,168 @@
 {% block contenido %}
 
 <script type="text/javascript">
-/*
-<!--$(document).ready(function(){-->
-<!--    function focus()-->
-<!--    {-->
-<!--        $('.titleUp').hover(function(){-->
-<!--            $('plantilla').addClass("focusUpload");-->
 
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
+$(document).ready(function(){
+mostrarGeneros();
+addActor();
+sliderPuntuacion();
 
-<!--        $('.imageUp').hover(function(){-->
+});
 
 
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
+    function sliderPuntuacion()
+    {
+        var select = $( "#minbeds" );
+        var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
+        min: 1,
+        max: 10,
+        range: "min",
+        value: select[ 0 ].selectedIndex + 1,
+        slide: function( event, ui )
+        {
+            select[ 0 ].selectedIndex = ui.value - 1;
+        }
+        });
+        $( "#minbeds" ).change(function() {
+            slider.slider( "value", this.selectedIndex + 1 );
+        });
+    }
 
-<!--        $('.actorsUp').hover(function(){-->
+    function mostrarGeneros()
+    {
+        $('#genero').hover(function(){
+            $('.genero').fadeIn('slow');
+        },function(){
+            $('.genero').fadeOut('slow');
+        });
 
+        $('#pais').hover(function(){
+            $('.country').fadeIn('slow');
+        },function(){
+            $('.country').fadeOut('slow');
+        });
 
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
+    }
 
-<!--        $('.directoUp').hover(function(){-->
+    function addActor()
+    {
+        $('.btn-addActor').click(function(){
+            var addAct = document.getElementById('introActor').value;
+            var addActLn = document.getElementById('introActorLn').value;
 
+            $('#act').after('<div id="act" class="input-group"><span class="input-group-addon"><input type="checkbox" name="actors[]" value="'+addAct+';'+addActLn+'" class="checkActor"></span><input id="actor" type="text" class="form-control" value="'+addAct+'" readonly="readonly"><input id="lastName" type="text" value="'+addActLn+'" class="form-control" readonly="readonly"></div>');
+        });
 
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
+        $('.btn-addDirector').click(function(){
+            var addDirect = document.getElementById('introDirector').value;
+            var addDirectLn = document.getElementById('introDirectorLn').value;
 
-<!--        $('.countryUp').hover(function(){-->
-
-
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
-
-<!--        $('.synopsisUp').hover(function(){-->
-
-
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
-
-<!--        $('.dateUp').hover(function(){-->
-
-
-<!--        },function(){-->
-<!--    -->
-<!--        });-->
-
-<!--    }-->
-
-<!--});-->*/
+            $('#direct').after('<div id="direct" class="input-group"><span class="input-group-addon"><input type="radio" name="director[]" value="'+addDirect+';'+addDirectLn+'" class="checkDirector"></span><input id="director" type="text" class="form-control" value="'+addDirect+'" readonly="readonly"><input id="directorln" type="text" class="form-control" value="'+addDirectLn+'" name="directorLn" readonly="readonly"></div>');
+        });
+    } 
 
 </script>
 
 <div class="panel-Upload panel" id="formUpload">
+    <h1 class="h1">Sube Tus Peliculas Favoritas</h1>
     <form id="formUpload" action="{{path('pagina_upload')}}" method="post">
         <div id="input-group"class="input-group titleUp">
-          <span class="input-group-addon">Titulo</span>
-          <input type="text" class="form-control" placeholder="Titulo">
+             <span class="input-group-addon">Titulo</span>
+            <input type="text" class="form-control" placeholder="Titulo" name="titleUp">
         </div>
         <div id="input-group" class="input-group imageUp">
-          <span class="input-group-addon">Imagen</span>
-          <input type="text" class="form-control" placeholder="Imagen">
+            <span class="input-group-addon">Imagen</span>
+             <input type="text" class="form-control" placeholder="Imagen" name="imageUp">
         </div>
         <div id="input-group" class="input-group urlUp">
-          <span class="input-group-addon">Url</span>
-          <input type="text" class="form-control" placeholder="Url">
+            <span class="input-group-addon">Url</span>
+            <input type="text" class="form-control" placeholder="Url" name="urlUp">
         </div>
-        <div id="input-group" class="input-group actorsUp">
-          <span class="input-group-addon">Actors</span>
-          <input type="text" class="form-control" placeholder="Actores">
+
+
+        <input type="text" id="introActor" class="form-control "  placeholder="Nombre del Actor" name="addActor"><input type="text" placeholder="Apellido del Actor" id="introActorLn" class="form-control " name="addActorLn"><input class="btn btn-lg btn-primary btn-addActor" value="Añadir"role="button"/>
+        <div id="actores">
+        {% for actor in actors %}
+            <div id="act" class="input-group">
+                <span class="input-group-addon">
+                    <input type="checkbox" name="actors[]"  value="{{actor}};{{actor.lastName}}" class="checkActor">
+                </span>
+                <input id="actor" type="text" class="form-control"  value="{{actor}}" readonly="readonly">
+                <input id="lastName"  type="text" value="{{actor.lastName}}" class="form-control" readonly="readonly">
+            </div>
+        {% endfor %}
         </div>
-        <div id="input-group" class="input-group directoUp">
-          <span class="input-group-addon">Director</span>
-          <input type="text" class="form-control" placeholder="Director">
+
+
+        <input type="text" id="introDirector" class="form-control "placeholder="Nombre del Director"  name="addDirector"><input type="text" id="introDirectorLn" class="form-control " placeholder="Apellido del Director" name="addDirectorLn"><input class="btn btn-lg btn-primary btn-addDirector"  value="Añadir"role="button"/>
+        <div id="directores">
+        {% for director in directors %}
+            <div id="direct" class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" name="director[]" value="{{director}};{{director.lastName}}"  class="checkDirector" >
+                </span>
+                <input id="director" type="text" class="form-control" value="{{director}}"  readonly="readonly">
+                <input id="directorln" type="text" class="form-control" value="{{director.lastName}}" name="directorLn" readonly="readonly">
+            </div>
+        {% endfor %}
         </div>
-        <div id="input-group" class="input-group countryUp">
-          <span class="input-group-addon">Pais de Procedencia</span>
-          <input type="text" class="form-control" placeholder="Pais de Procedencia">
+
+
+        <div id="pais">
+            <span id="pais"class="input-group-addon">Pais de origen</span>
+            {% for country in country %}
+            <div class="input-group country" style="display:none;">
+                <span class="input-group-addon">
+                  <input type="radio" value="{{country.id}}" name="countryUp">
+                </span>
+            <input type="text" class="form-control" value="{{country}}" readonly="readonly">
+            </div>
+        {% endfor %}
         </div>
+
         <div id="input-group" class="input-group synopsisUp">
-          <span class="input-group-addon">Synopsis</span>
-          <input type="text" class="form-control" placeholder="Synopsis">
+            <span class="input-group-addon">Synopsis</span>
+            <input type="text" class="form-control" placeholder="Synopsis" name="synopsisUp">
         </div>
         <div id="input-group" class="input-group dateUp">
-          <span class="input-group-addon">Fecha</span>
-          <input type="text" class="form-control" placeholder="Fecha">
+            <span class="input-group-addon">Fecha</span>
+            <input type="text" class="form-control" placeholder="Fecha" name="dateUp">
         </div>
+
+    <div id="genero">
+        <span id="genero"class="input-group-addon">Genero</span>
+        {% for type in gender %}
+        <div class="input-group genero" style="display:none;">
+            <span class="input-group-addon">
+                <input type="radio"  name="typeUp" value="{{type.id}}" >
+            </span>
+            <input type="text" class="form-control" value="{{type}}" readonly="readonly">
+        </div>
+        {% endfor %}
+    </div>
+        <div id="score">
+            <h3>Como puntuarias esta pelicula?</h3>
+            <select name="minbeds" id="minbeds">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+        </div>
+            <input type="hidden" name="user_id" value="{{app.user.id}}"/>
+        <div id="comment">
+            <input type="text" class="form-control" name="comment" value="" placeholder="Escribe un comentario sobre la pelicula...">
+        </div>
+        <input class="btn btn-lg btn-primary btn-Upload" type="submit" value="Subir Pelicula"role="button"/>
     </form>
 </div>
 
-<div id="plantilla">
-    <div id="plantilla-img" class="panel plantilla">img</div>
-    <div id="plantilla-info" class="panel plantilla">info</div>
-    <div id="plantilla-synopsis" class="panel plantilla"> synopsis</div>
-    <div id="plantilla-comment" class="panel plantilla">comment</div>
-</div>
 {% endblock %}
 
 

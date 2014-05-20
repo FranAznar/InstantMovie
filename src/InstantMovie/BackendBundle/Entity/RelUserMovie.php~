@@ -14,7 +14,6 @@ class RelUserMovie
 {
     /**
      * @var integer
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -41,14 +40,15 @@ class RelUserMovie
     /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="text")
+     * @ORM\Column(name="comment", type="text", nullable=true)
      */
     private $comment;
+
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="valoration", type="integer")
+     * @ORM\Column(name="valoration", type="integer", nullable=true)
      */
     private $valoration;
 
@@ -65,6 +65,7 @@ class RelUserMovie
     public function setViewDate()
     {
         $this->viewDate = new \DateTime("now");
+
     }
 
     /**
@@ -74,6 +75,8 @@ class RelUserMovie
      */
     public function getViewDate()
     {
+        
+
         return $this->viewDate;
     }
 
@@ -116,8 +119,6 @@ class RelUserMovie
     {
         return $this->movie;
     }
-
-
 
     /**
      * Set comment
@@ -162,4 +163,6 @@ class RelUserMovie
     {
         return $this->valoration;
     }
+
+
 }

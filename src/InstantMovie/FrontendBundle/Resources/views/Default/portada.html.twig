@@ -4,23 +4,30 @@
 {% block title%} INSTANT MOVIE {% endblock %}
 {% block id 'portada' %}
 
-    {% block contenido %}
-               <div id= "menuLateral" class="panel">
-                    <h3>novedades</h3>
-                </div>
-            <div id= "trailer" class="panel">
-                    <div id= "cajaTrailer" class="panel">
-             
-                    <iframe src="http://www.youtube.com/embed/M4sagNn4BNU" width="98%" height="98%" frameborder="0" allowfullscreen></iframe>
-                    
-                    </div>
-                    <div id= "cajaSynapsis" class="panel">
-                        <h3>Synapsis</h3>
-                    </div>
-                </div>
-                <div id= "noticias" class="panel">
-                    <h3>noticias</h3>
-                </div>
+{% block contenido %}
+    <div id= "menuLateral" class="panel">
+        <h3>novedades</h3>
+        <div id= "Comentarios" class="panel">
+            <p class="panel comment">{% for novedades in historial %}{{novedades.User}} <span class ="glyphicon glyphicon-arrow-right"></span>{{novedades.Movie}}: {{novedades.Comment}}{% endfor %} <span class="glyphicon glyphicon-comment"</span></p>
+        </div>
+        <div id= "Puntuaciones" class="panel">
+            <p class="panel comment">{% for upload in uploads %}{{upload.SubidaPor}}<span class ="glyphicon glyphicon-arrow-right"></span> ha subido {{upload.Title}}{% endfor %} <span class="glyphicon glyphicon-ok"</span></p>
+            <p class="panel comment">{% for novedades in historial %}{{novedades.User}}<span class ="glyphicon glyphicon-arrow-right"> </span> puntua con un {{novedades.Valoration}}/10 {{novedades.Movie}}{% endfor %} <span class="glyphicon glyphicon-ok"</span></p>
+            
+        </div>
+
+    </div>
+    <div id= "trailer" class="panel">
+        <div id= "cajaTrailer" class="panel">
+            <iframe src="http://www.youtube.com/embed/M4sagNn4BNU" width="98%" height="98%" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id= "cajaSynapsis" class="panel">
+            <h3>Synapsis</h3>
+        </div>
+    </div>
+    <div id= "noticias" class="panel">
+        <h3>noticias</h3>
+    </div>
 
 {% endblock %}
 

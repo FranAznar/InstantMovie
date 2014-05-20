@@ -1,7 +1,6 @@
 <?php
 
 namespace InstantMovie\BackendBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -136,8 +135,6 @@ class Director
     {
         $this->movie[] = $movie;
         //$movie->addDirector($this);
-
-
         return $this;
     }
 

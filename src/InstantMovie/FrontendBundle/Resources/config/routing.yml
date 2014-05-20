@@ -17,22 +17,21 @@ usuario_perfil:
     path: /user/perfil
     defaults: { _controller: FrontendBundle:RegistrosyPerfiles:perfil }
 
-
-
 pagina_historial:
     path: /user/historial/{user_id}
     defaults: { _controller: FrontendBundle:Historial:historial }
 
+historial_upload:
+    path: /user/historialUpload/{user_id}
+    defaults: { _controller: FrontendBundle:Historial:historialUpload }
+
 historial_peliculas:
     path: /user/historialPeliculas/{user_id}
-    defaults: { _controller: FrontendBundle:Historial:historialPeliculas}
-
-
-
-
+    defaults: { _controller: FrontendBundle:Historial:historialPeliculas }
 
 pagina_enlaces:
     path: /user/enlaces/{movie_id}{user_id}
+
     defaults: { _controller: FrontendBundle:ModoNormal:enlaces }
 
 pagina_peliculas:
@@ -51,14 +50,9 @@ introducir_Puntuacion:
     path: /user/introducirPuntuacion
     defaults: { _controller: FrontendBundle:ModoNormal:introducirPuntuacion }
 
-
-
-
 pagina_upload:
     path: /user/upload
     defaults: { _controller: FrontendBundle:Upload:upload }
-
-
 
 pagina_mrandom:
     path: /user/mrandom

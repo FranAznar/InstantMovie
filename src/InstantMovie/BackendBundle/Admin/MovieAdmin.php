@@ -27,6 +27,7 @@ class MovieAdmin extends Admin
             ->add('url', 'textarea', array('label' => 'Url'))
             ->add('actors', 'sonata_type_model', array('expanded' => false, 'by_reference' => false, 'multiple' => true))
             ->add('director', 'sonata_type_model', array('expanded' => false, 'by_reference' => false, 'multiple' => true))
+            ->add('subidaPor', 'entity', array('class' => 'InstantMovie\BackendBundle\Entity\User'))
         ;
     }
 
@@ -39,6 +40,7 @@ class MovieAdmin extends Admin
             ->add('country')
             ->add('synapses')
             ->add('url')
+            ->add('subidaPor')
         ;
     }
 
@@ -51,6 +53,7 @@ class MovieAdmin extends Admin
             ->add('country')
             ->add('synapses')
             ->add('url')
+            ->add('subidaPor')
         ;
     }
 }
