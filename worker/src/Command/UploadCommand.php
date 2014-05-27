@@ -1,32 +1,37 @@
 <?php
 
-namespace InstantMovie\FrontendBundle\Controller;
+namespace src\Command;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Security\Core\SecurityContext;
-use Symfony\Component\HttpFoundation\Request;
-use InstantMovie\BackendBundle\Entity\User;
-use InstantMovie\BackendBundle\Entity\Director;
-use InstantMovie\BackendBundle\Entity\Gender;
-use InstantMovie\BackendBundle\Entity\Actor;
-use InstantMovie\BackendBundle\Entity\Country;
-use InstantMovie\BackendBundle\Entity\Movie;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Symfony\Component\DependencyInjection\ContainerInterface as container;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
 use InstantMovie\BackendBundle\Entity\RelUserMovie;
-use InstantMovie\FrontendBundle\Form\Frontend\UserRegisterType;
 
-
-class UploadController extends Controller
+class UploadCommand extends ContainerAwareCommand 
 {
-    public function uploadAction()
+
+    protected function configure()
     {
-        $request = $this->getRequest();
-        $em = $this->getDoctrine()->getManager();
+        $this->setName("command:upload")
+             ->setDescription("Subir peliculas");
+    }
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+            $em = $this->getDoctrine()->getManager();
 
         if($_POST)
         {
 
             $actorsCollection = $request->request->get('actors');
             $actores = array();
+
             foreach($actorsCollection as $actors)
             {
                 $actores[] = explode(';',$actors);
@@ -212,6 +217,5 @@ class UploadController extends Controller
 
         return $idMovie;
     }
-
 
 }

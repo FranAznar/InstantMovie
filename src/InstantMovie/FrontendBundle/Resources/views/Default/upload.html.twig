@@ -11,8 +11,8 @@ $(document).ready(function(){
 mostrarGeneros();
 addActor();
 sliderPuntuacion();
-
 });
+
 
 
     function sliderPuntuacion()
@@ -33,6 +33,7 @@ sliderPuntuacion();
         });
     }
 
+
     function mostrarGeneros()
     {
         $('#genero').hover(function(){
@@ -46,7 +47,6 @@ sliderPuntuacion();
         },function(){
             $('.country').fadeOut('slow');
         });
-
     }
 
     function addActor()
@@ -57,11 +57,9 @@ sliderPuntuacion();
 
             $('#act').after('<div id="act" class="input-group"><span class="input-group-addon"><input type="checkbox" name="actors[]" value="'+addAct+';'+addActLn+'" class="checkActor"></span><input id="actor" type="text" class="form-control" value="'+addAct+'" readonly="readonly"><input id="lastName" type="text" value="'+addActLn+'" class="form-control" readonly="readonly"></div>');
         });
-
         $('.btn-addDirector').click(function(){
             var addDirect = document.getElementById('introDirector').value;
             var addDirectLn = document.getElementById('introDirectorLn').value;
-
             $('#direct').after('<div id="direct" class="input-group"><span class="input-group-addon"><input type="radio" name="director[]" value="'+addDirect+';'+addDirectLn+'" class="checkDirector"></span><input id="director" type="text" class="form-control" value="'+addDirect+'" readonly="readonly"><input id="directorln" type="text" class="form-control" value="'+addDirectLn+'" name="directorLn" readonly="readonly"></div>');
         });
     } 
@@ -84,8 +82,8 @@ sliderPuntuacion();
             <input type="text" class="form-control" placeholder="Url" name="urlUp">
         </div>
 
-
         <input type="text" id="introActor" class="form-control "  placeholder="Nombre del Actor" name="addActor"><input type="text" placeholder="Apellido del Actor" id="introActorLn" class="form-control " name="addActorLn"><input class="btn btn-lg btn-primary btn-addActor" value="Añadir"role="button"/>
+
         <div id="actores">
         {% for actor in actors %}
             <div id="act" class="input-group">
@@ -98,7 +96,6 @@ sliderPuntuacion();
         {% endfor %}
         </div>
 
-
         <input type="text" id="introDirector" class="form-control "placeholder="Nombre del Director"  name="addDirector"><input type="text" id="introDirectorLn" class="form-control " placeholder="Apellido del Director" name="addDirectorLn"><input class="btn btn-lg btn-primary btn-addDirector"  value="Añadir"role="button"/>
         <div id="directores">
         {% for director in directors %}
@@ -108,10 +105,10 @@ sliderPuntuacion();
                 </span>
                 <input id="director" type="text" class="form-control" value="{{director}}"  readonly="readonly">
                 <input id="directorln" type="text" class="form-control" value="{{director.lastName}}" name="directorLn" readonly="readonly">
+
             </div>
         {% endfor %}
         </div>
-
 
         <div id="pais">
             <span id="pais"class="input-group-addon">Pais de origen</span>
@@ -121,6 +118,7 @@ sliderPuntuacion();
                   <input type="radio" value="{{country.id}}" name="countryUp">
                 </span>
             <input type="text" class="form-control" value="{{country}}" readonly="readonly">
+
             </div>
         {% endfor %}
         </div>

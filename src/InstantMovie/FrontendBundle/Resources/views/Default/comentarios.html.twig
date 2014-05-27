@@ -6,25 +6,46 @@
 
 
 <script type="text/javascript">
+var isReady;
+
 function mostrarComentario(movieId,userId){
-
-    alert('entra');
+    
     var comment = document.getElementById('comment').value;
-
-    $.post("{{path('comentarios_ajax')}}",
+    aleatorio = Math.random()*99999;
+    $.post("{{path('push_in_queue')}}",
     {
+        token:aleatorio,
         movie_id:movieId,
         user_id:userId,
         comment: comment,
-    
-    })
-    .done(function(data){
-        $('#comentario').html(data);
-    });
-}
 
-function refrescarComentario(){
-    location.reload();
+    }).done(function(data){
+         $.post('{{path("pull_in_queue")}}',
+        {
+            token:aleatorio,
+
+        }).done(function(data){
+            var i = 0;
+            while(!isReady)
+            {
+                i++;
+                console.log('sleep');
+                sleep(1000);
+                console.log('sleep finish');
+                console.log('Asking...'+ aleatorio);
+                console.log('IsReady ?');
+                isReady = data;
+                console.log('response isready:'+ isReady);
+            }
+            },'json');
+            });
+         console.log('the proces is finished');
+    }
+
+
+function sleep(milliSeconds){
+    var startTime = new Date().getTime(); 
+    while (new Date().getTime() < startTime + milliSeconds); 
 }
 </script>
 
@@ -34,7 +55,7 @@ function refrescarComentario(){
 
     <div id="textarea">
      <textarea class="form-control" rows="5" placeholder="Campo de texto" name="comment" id="comment"></textarea>
-     <button type="button" class="boton btn btn-lg btn-primary"  id="botonScore" onClick="mostrarComentario({{movie_id}},{{app.user.id}}); refrescarComentario();">Comentar</button>
+     <button type="button" class="boton btn btn-lg btn-primary" id="botonScore" onClick="mostrarComentario({{movie_id}},{{app.user.id}});">Comentar</button>
     </div>
 
  {% for comments in comentarios %}

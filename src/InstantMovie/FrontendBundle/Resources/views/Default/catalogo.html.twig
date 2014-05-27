@@ -1,0 +1,34 @@
+{# src/InstantMovie/BackendBundle/Resources/views/Default/catalogo.html.twig #}
+{% extends '::frontend.html.twig' %}
+
+{% block title%} Catalogo {% endblock %}
+{% block id 'catalogo' %}
+
+    {% block contenido %}
+<script type="text/javascript">
+    function mostrarInfoMovieClick(movieId)
+    {
+        $.post("{{path('mnormal_ajax')}}",
+        {
+            movie_id:movieId,
+        }).done(function(data){
+            window.location="{{path('pagina_mnormal')}}";
+        });
+    }
+ 
+</script>
+
+        <div id="catalog" class="panel">
+            {% for movie in movies %}
+             <div id ="viewMovie1" class="panel panel-info " onclick="mostrarInfoMovieClick('{{movie.id}}')">
+                <div class="panel-heading">
+                        <h4>{{movie.title}}</h4>
+                </div>
+                <div class="panel-body">
+                    <img class="img" src="{{movie.image}}" width="100%" height="220px">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    {% endblock %}

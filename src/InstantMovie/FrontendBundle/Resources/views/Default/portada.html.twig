@@ -8,11 +8,11 @@
     <div id= "menuLateral" class="panel">
         <h3>novedades</h3>
         <div id= "Comentarios" class="panel">
-            <p class="panel comment">{% for novedades in historial %}{{novedades.User}} <span class ="glyphicon glyphicon-arrow-right"></span>{{novedades.Movie}}: {{novedades.Comment}}{% endfor %} <span class="glyphicon glyphicon-comment"</span></p>
+           {% for novedades in historial %} <p class="panel comment">{{novedades.User}} <span class ="glyphicon glyphicon-arrow-right"></span>{{novedades.Movie}}: {{novedades.Comment}} <span class="glyphicon glyphicon-comment"</span></p>{% endfor %}
         </div>
         <div id= "Puntuaciones" class="panel">
-            <p class="panel comment">{% for upload in uploads %}{{upload.SubidaPor}}<span class ="glyphicon glyphicon-arrow-right"></span> ha subido {{upload.Title}}{% endfor %} <span class="glyphicon glyphicon-ok"</span></p>
-            <p class="panel comment">{% for novedades in historial %}{{novedades.User}}<span class ="glyphicon glyphicon-arrow-right"> </span> puntua con un {{novedades.Valoration}}/10 {{novedades.Movie}}{% endfor %} <span class="glyphicon glyphicon-ok"</span></p>
+            {% for upload in uploads %}<p class="panel comment">{{upload.SubidaPor}}<span class ="glyphicon glyphicon-arrow-right"></span> ha subido {{upload.Title}} <span class="glyphicon glyphicon-ok"></span></p>{% endfor %}
+           {% for novedades in historial %} <p class="panel comment">{{novedades.User}}<span class ="glyphicon glyphicon-arrow-right"> </span> puntua con un {{novedades.Valoration}}/10 {{novedades.Movie}} <span class="glyphicon glyphicon-ok"</span></p>{% endfor %}
             
         </div>
 

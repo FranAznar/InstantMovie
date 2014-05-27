@@ -29,6 +29,7 @@ historial_peliculas:
     path: /user/historialPeliculas/{user_id}
     defaults: { _controller: FrontendBundle:Historial:historialPeliculas }
 
+
 pagina_enlaces:
     path: /user/enlaces/{movie_id}{user_id}
 
@@ -77,5 +78,15 @@ comentarios_ajax:
     path: /user/comentariosAjax
     defaults: { _controller: FrontendBundle:Comentarios:comentariosAjax }
 
+push_in_queue:
+    path: /user/pushInQueue
+    defaults: { _controller: FrontendBundle:Comentarios:pushInQueue }
 
+pull_in_queue:
+    path: /user/pullInQueue
+    defaults: { _controller: FrontendBundle:Comentarios:pullInQueue }
+
+catalogo:
+    path: /user/catalogo
+    defaults: { _controller: FrontendBundle:Catalogo:catalogo }
 
