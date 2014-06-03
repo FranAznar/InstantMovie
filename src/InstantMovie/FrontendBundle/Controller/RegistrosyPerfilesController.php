@@ -9,7 +9,7 @@ use InstantMovie\BackendBundle\Entity\User;
 use InstantMovie\BackendBundle\Entity\Movie;
 use InstantMovie\BackendBundle\Entity\RelUserMovie;
 use InstantMovie\FrontendBundle\Form\Frontend\UserRegisterType;
-
+use Doctrine\ORM\EntityRepository;
 
 class RegistrosyPerfilesController extends Controller
 {
@@ -81,11 +81,29 @@ class RegistrosyPerfilesController extends Controller
 
 
 # Configuracion del perfil de usuarios.
+
         public function perfilAction()
         {
+            $peticion = $this->getRequest();
+
+            if(!isset($token))
+            {
+                $token = 0;
+            }
+
+                $tokeN = $peticion->request->get('token');
+                $token = json_decode($tokeN);
+            
+            if($token == 1)
+            {
+                error_log('token->'.$token);
+                $user_id= $peticion->request->get('user');
+                $this->deleteAccount($user_id);
+            }
+           
             $user = $this->get('security.context')->getToken()->getUser();
             $formulario = $this->createForm(new UserRegisterType(), $user);
-            $peticion = $this->getRequest();
+            
             $passwordOriginal = $formulario->getData()->getPassword();
             $formulario->handleRequest($peticion);
 
@@ -106,6 +124,15 @@ class RegistrosyPerfilesController extends Controller
             }
             return $this->render('FrontendBundle:Default:perfil.html.twig', array(
             'user' => $user, 'formulario' => $formulario->createView()));
+        }
+
+        public function deleteAccount($user_id)
+        {
+            $em = $this->getDoctrine()->getManager();
+           
+            $random = (int)rand(99999999, 99999999 );
+            error_log('BreakPoint');
+
         }
 }
 

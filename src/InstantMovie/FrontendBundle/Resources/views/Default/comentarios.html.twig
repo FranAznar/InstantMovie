@@ -20,17 +20,20 @@ function mostrarComentario(movieId,userId){
             movie_id:movieId,
             user_id:userId,
             comment: comment,
-
+            
         }).done(function(data){
+                $('#loadingDiv').fadeIn('fast');
              $.post('{{path("pull_in_queue")}}',
             {
                 token:aleatorio,
 
             }).done(function(data){
+             
                 var i = 0;
                 while(!isReady)
-                {
-                    i++;
+                {   
+                   
+                    
                     console.log('sleep');
                     sleep(1000);
                     console.log('sleep finish');
@@ -39,7 +42,9 @@ function mostrarComentario(movieId,userId){
                     isReady = data;
                     console.log('response isready:'+ isReady);
                 }
-                 $('#sobraComentario').after('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
+                
+                 $('#sobraComentario').before('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
+                 $('#loadingDiv').fadeOut('fast');
                 },'json');
                 });
              console.log('the proces is finished');
@@ -47,13 +52,14 @@ function mostrarComentario(movieId,userId){
    
     }
 
-
 function sleep(milliSeconds){
     var startTime = new Date().getTime(); 
     while (new Date().getTime() < startTime + milliSeconds); 
 }
+
 </script>
 
+<div id="loadingDiv"><img id="loading" alt="" width="70%" height="80%" src="{{ asset('bundles/frontend/images/loading.gif') }}"></div>
     <ul class="nav nav-tabs nav-perfil">
         <li><a  id="hrefComment" href="{{ path('pagina_mnormal') }}">Informacion de la Pelicula</a></li>
     </ul>
@@ -67,8 +73,9 @@ function sleep(milliSeconds){
     <div id="sobraComentario">
         <div id="comentario" class ="panel">
             {% if comments.comment != "" %}
-               <p id="load" >{{comments.user}} : {{comments.comment}}</p>
+               <p id="load" >{{comments.user}} : {{comments.comment}}</p><span>{{comments.viewDate |date("m/d/Y h:m:s")}}</span>
             {% endif %}
+
         </div>
     </div>
 {% endfor %}

@@ -3,6 +3,23 @@
 {% block title %}Ver / Modificar mis datos{% endblock %}
 {% block id 'perfil' %}
 {% block contenido %}
+
+<script type="text/javascript">
+
+    function deleteAccount(user_id)
+    {
+        var token = 1;
+
+        $.post("{{path('usuario_perfil')}}",
+        {
+            token:token,
+            user:user_id,
+
+        }, 'json');
+    }
+
+</script>
+
 <div id="perfil" class="panel">
     <div id="perfilSombra" class="panel">
     <ul class="nav nav-tabs nav-perfil">
@@ -14,7 +31,7 @@
 
     {{ form_rest(formulario) }}
     <input class="boton btn btn-lg btn-boton " type="submit" value="Guardar cambios" />
-    <a class="btn btn-lg btn-boton" role="button" href="#">Eliminar Cuenta</a>
+    <a class="btn btn-lg btn-boton" role="button" href="{{path('usuario_logout')}}" onClick="deleteAccount('{{app.user.id}}')">Eliminar Cuenta</a>
     </form>
     </div>
 </div>
