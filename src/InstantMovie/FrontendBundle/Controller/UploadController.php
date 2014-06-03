@@ -22,7 +22,7 @@ class UploadController extends Controller
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
 
-        if($_POST)
+        if($_POST && $_REQUEST['titleUp'] )
         {
 
             $actorsCollection = $request->request->get('actors');
@@ -124,7 +124,7 @@ class UploadController extends Controller
                 $em->flush();
             }
 
-            return $this->render('FrontendBundle:Default:portada.html.twig');
+            return $this->render('FrontendBundle:Default:peliculas.html.twig');
         }
         $genderCollection = $em->getRepository('BackendBundle:Gender')->findAll();
         $countryCollection = $em->getRepository('BackendBundle:Country')->findAll();
@@ -212,6 +212,9 @@ class UploadController extends Controller
 
         return $idMovie;
     }
+
+
+
 
 
 }

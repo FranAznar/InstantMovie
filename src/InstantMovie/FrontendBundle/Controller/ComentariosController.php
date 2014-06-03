@@ -19,8 +19,7 @@ class ComentariosController extends Controller
 
     public function comentariosAction(Request $query)
     {   
-        
-        
+
         $movie_id = $query->query->get('movie_id');
         $movie_id = $query->get('movie_id');
       

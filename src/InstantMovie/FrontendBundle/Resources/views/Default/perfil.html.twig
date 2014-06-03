@@ -1,20 +1,23 @@
 {% extends '::frontend.html.twig' %}
-{% block id 'perfil' %}
+
 {% block title %}Ver / Modificar mis datos{% endblock %}
-
+{% block id 'perfil' %}
 {% block contenido %}
+<div id="perfil" class="panel">
+    <div id="perfilSombra" class="panel">
+    <ul class="nav nav-tabs nav-perfil">
+      <li class="active"><a href="{{path('usuario_perfil')}}">Datos del Perfil</a></li>
+      <li><a class="historialLink" href="{{path('pagina_historial',{'user_id' : app.user.id})}}">Historial</a></li>
+    </ul>
 
-<ul class="nav nav-tabs nav-perfil">
-  <li class="active"><a href="{{path('usuario_perfil')}}">Datos del Perfil</a></li>
-  <li><a href="{{path('pagina_historial',{'user_id' : app.user.id})}}">Historial</a></li>
-</ul>
-
-<form action="{{ path('usuario_perfil') }}" method="post" {{form_enctype(formulario) }} class="form-perfil">
+<form id="form-perfil" action="{{ path('usuario_perfil') }}" method="post" {{form_enctype(formulario) }} class="form-perfil">
 
     {{ form_rest(formulario) }}
-    <input class="boton btn btn-lg btn-primary" type="submit" value="Guardar cambios" />
-    <a class="btn btn-lg btn-danger" role="button" href="#">Eliminar Cuenta</a>
+    <input class="boton btn btn-lg btn-boton " type="submit" value="Guardar cambios" />
+    <a class="btn btn-lg btn-boton" role="button" href="#">Eliminar Cuenta</a>
     </form>
+    </div>
+</div>
 {% endblock %}
 
 

@@ -120,23 +120,24 @@ class ModoNormalController extends Controller
         {
             $movieValoration = $movie->getValoration();
         }
-
+        
         if(empty($movieValoration))
         {
+            
             $em = $this->getDoctrine()->getEntityManager();
             $user = $em->find('BackendBundle:User', $user_id);
             $movie = $em->find('BackendBundle:Movie', $movie_id);
-
+            
             $relUserMovie = new RelUserMovie();
             $relUserMovie->setMovie($movie);
             $relUserMovie->setUser($user);
             $relUserMovie->setValoration($score);
             $relUserMovie->setViewDate(new \DateTime("now"));
-            $relUserMovie->setComment($comment);
-
+            error_log("BreakPoint");
             $em->persist($relUserMovie);
             $em->flush();
             error_log("he votado");
+            
         }else
         {
             error_log("ya has votado");

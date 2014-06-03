@@ -12,34 +12,39 @@ function mostrarComentario(movieId,userId){
     
     var comment = document.getElementById('comment').value;
     aleatorio = Math.random()*99999;
-    $.post("{{path('push_in_queue')}}",
+    if(comment != "")
     {
-        token:aleatorio,
-        movie_id:movieId,
-        user_id:userId,
-        comment: comment,
-
-    }).done(function(data){
-         $.post('{{path("pull_in_queue")}}',
+        $.post("{{path('push_in_queue')}}",
         {
             token:aleatorio,
+            movie_id:movieId,
+            user_id:userId,
+            comment: comment,
 
         }).done(function(data){
-            var i = 0;
-            while(!isReady)
+             $.post('{{path("pull_in_queue")}}',
             {
-                i++;
-                console.log('sleep');
-                sleep(1000);
-                console.log('sleep finish');
-                console.log('Asking...'+ aleatorio);
-                console.log('IsReady ?');
-                isReady = data;
-                console.log('response isready:'+ isReady);
-            }
-            },'json');
-            });
-         console.log('the proces is finished');
+                token:aleatorio,
+
+            }).done(function(data){
+                var i = 0;
+                while(!isReady)
+                {
+                    i++;
+                    console.log('sleep');
+                    sleep(1000);
+                    console.log('sleep finish');
+                    console.log('Asking...'+ aleatorio);
+                    console.log('IsReady ?');
+                    isReady = data;
+                    console.log('response isready:'+ isReady);
+                }
+                 $('#sobraComentario').after('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
+                },'json');
+                });
+             console.log('the proces is finished');
+    }
+   
     }
 
 
@@ -50,19 +55,21 @@ function sleep(milliSeconds){
 </script>
 
     <ul class="nav nav-tabs nav-perfil">
-        <li><a href="{{ path('pagina_mnormal') }}">Informacion de la Pelicula</a></li>
+        <li><a  id="hrefComment" href="{{ path('pagina_mnormal') }}">Informacion de la Pelicula</a></li>
     </ul>
 
     <div id="textarea">
      <textarea class="form-control" rows="5" placeholder="Campo de texto" name="comment" id="comment"></textarea>
-     <button type="button" class="boton btn btn-lg btn-primary" id="botonScore" onClick="mostrarComentario({{movie_id}},{{app.user.id}});">Comentar</button>
+     <button type="button" class="boton btn btn-lg" id="botonScore" onClick="mostrarComentario({{movie_id}},{{app.user.id}});">Comentar</button>
     </div>
 
- {% for comments in comentarios %}
-    <div id="comentario" class ="panel">
-        {% if comments.comment != ""%}
-           <p>{{comments.user}} : {{comments.comment}}</p>
-        {% endif %}
+{% for comments in comentarios %}
+    <div id="sobraComentario">
+        <div id="comentario" class ="panel">
+            {% if comments.comment != "" %}
+               <p id="load" >{{comments.user}} : {{comments.comment}}</p>
+            {% endif %}
+        </div>
     </div>
 {% endfor %}
    

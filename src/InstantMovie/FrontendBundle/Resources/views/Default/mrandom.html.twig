@@ -26,56 +26,58 @@
 </script>
 
             <div id="matizar" class="panel">
-                <div class ="infoModo panel ">
-                    <h3>Especificar Preferencias</h3>
-                    <ul>
-                        <li>Indicanos tus preferencias</li>
-                        <li>Matiza tus gustos</li>
-                    </ul>
-                <form action="{{path('pagina_matizar')}}" method="post">
-                <input class="btn btn-lg btn-primary btn-matizar" type="submit" value="Entrar"role="button"/>
-
-                    <select name="director" id="director" class="matizar director">
-                         <option></option>
+                <div id="infoModoM" class ="infoModo panel ">
+                    <div id="infoModoSombra" class="panel">
+                        <h3>Especificar Preferencias</h3>
+                        <p>Indicanos tus preferencias</p>
+                        <p>Matiza tus gustos</p>
+                    </div>  
+            
+                <form action="{{path('pagina_matizar')}}" class="matizarForm" method="post">
+                <input class="btn btn-lg btn-matizar" type="submit" value="Entrar"role="button"/>
+                  
+                    <select name="director" id="director" class="director">
+                         <option value="">Director</option> 
                         {% for movie in director %}
                             <option value="{{movie.id}}">{{movie.name}} {{movie.lastName}}</option>
                         {% endfor %}
                     </select>
 
-                    <select name="gender" id="gender" class="matizar gender">
-                        <option></option>
+                    <select name="gender" id="gender" class="gender">
+                        <option value="">Genero</option> 
                         {% for movie in gender %}
                             <option value="{{movie.id}}">{{movie}}</option>
                         {% endfor %}
                     </select>
 
-                    <select name="actor" id="actor" class="matizar actor">
-                         <option></option>
+                    <select name="actor" id="actor" class="actor">
+                         <option value="">Actores</option> 
                         {% for movie in actors %}
                              <option value="{{movie.id}}">{{movie.name}} {{movie.lastName}}</option>
                         {% endfor %}
                     </select>
-
-</form>
-
-
+                 
+                </form>
 
                 </div>
-                <div class =" imagenRandom panel">
+                <div id="imagenRandom" class =" imagenRandom panel">
                     <img class="img-rounded randomImage" alt="" width="100%" height="100%" src="{{ asset('bundles/frontend/images/matizar.jpg') }}">
                 </div>
             </div>
-            
             <div id="random" class="panel">
-                <div class ="infoModo panel">
+                <div id="infoModo" class ="infoModo panel">
+                    <div id="randomSombra" class="panel">
                     <h3>Dejate Llevar</h3>
-                    <ul>
-                        <li>Sientate y dejate llevar</li>
-                        <li>Nostros elegimos tu pelicula</li>
-                    </ul>
-                <a class="btn btn-lg btn-primary btn-matizar" role="button" href="{{ path('pagina_random')}}">Entrar</a>
+                    
+                        <p>Sientate y dejate llevar</p>
+                        <p>Nostros elegimos tu pelicula</p>
+
+                        <a  id="btn-random" class="btn btn-lg  btn-random" role="button" href="{{ path('pagina_random')}}">Entrar</a>
+                    </div>
                 </div>
-                <div class =" imagenRandom panel">
+
+                
+                <div  id="imagenRandomN" class =" imagenRandom panel">
                     <img class="img-rounded randomImage" alt="" width="100%" height="100%" src="{{ asset('bundles/frontend/images/random.jpg') }}">
                 </div>
             </div>

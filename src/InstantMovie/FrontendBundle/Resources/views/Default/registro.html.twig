@@ -4,11 +4,12 @@
 {% block title %}Regístrate gratis como usuario{% endblock %}
 
 {% block contenido %}
-<h1>{{ block('title') }}</h1>
-    <form action="{{ path('usuario_registro') }}" method="post">
+<div id="registerSombra" class="panel">
+<h1 style="color:#ccc; text-align:center;">{{ block('title') }}</h1>
+    <form  class="panel" id="formRegister" action="{{ path('usuario_registro') }}" method="post">
         {{ form_widget(formulario) }}
-    <input class="boton" type="submit" value="Registrarme"/>
-</form>
+    <input class="boton btn-Regist btn-lg" type="submit" value="Registrarme"/>
+</div>
 {% endblock %}
 
 {% block aside %}{% endblock %}

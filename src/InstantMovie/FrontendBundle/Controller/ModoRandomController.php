@@ -52,33 +52,98 @@ class ModoRandomController extends Controller
 
     public function matizarAction(Request $request)
     {
-        $director = $request->request->get('director');
-        error_log($director);
-        $gender = $request->request->get('gender');
-        error_log($gender);
-        $actors = $request->request->get('actor');
-        error_log($actors);
+        $director_id = $request->request->get('director');
+        $gender_id = $request->request->get('gender');
+        $actors_id = $request->request->get('actor');
 
         $em = $this->getDoctrine()->getManager();
-        $movieCollection = $em->getRepository('BackendBundle:Movie')->movieWithParameters($actors, $director, $gender);
+
+        $director = $this->checkIfDirectorItsNull($director_id, $em);
+        $actors = $this->checkIfActorItsNull($actors_id, $em);
+        $gender = $this->checkIfDirectorItsNull($gender_id, $em);
+        $genderId = $em->find('BackendBundle:Gender', $gender);
+
+        $movieCollection = $em->getRepository('BackendBundle:Movie')->movieWithParameters($actors, $director, $genderId);
+
         $movie = array();
 
-
+        
         foreach($movieCollection as $movieObject)
         {
+            
             if(!isset($count))
             {
                 $count = 0;
             }
             $count++;
-            $movies[] = $movieObject;
+            $movie[] = $movieObject;
         }
 
-        $random = (int)rand(0, $count -1);
+        $random = (int)rand(0, ($count = $count -1));
         error_log($random);
-        $enlaceRandom = $movies[$random];
+        $enlaceRandom = $movie[$random];
 
         return $this->render('FrontendBundle:Default:matizar.html.twig', array('movies' => $enlaceRandom));
+    }
+
+    public function checkIfDirectorItsNull($director, $em)
+    {
+        if(!$director)
+        {
+            $directorsCollection = $em->getRepository('BackendBundle:Director')->findAll();
+            
+            foreach($directorsCollection as $directors)
+            {
+                if(!isset($count))
+                {
+                    $count = 0;
+                }
+                $count++;
+            }
+            $director = $random = (int)rand(1, $count);
+            
+        }
+        return $director;
+    }
+
+    public function checkIfActorItsNull($actor, $em)
+    {
+        if(!$actor)
+        {
+            $actorsCollection = $em->getRepository('BackendBundle:Actor')->findAll();
+            
+            foreach($actorsCollection as $actors)
+            {
+                if(!isset($count))
+                {
+                    $count = 0;
+                }
+                $count++;
+            }
+            $actor = $random = (int)rand(1, $count);
+            
+        }
+        return $actor;
+    }
+
+     public function checkIGenderItsNull($gender, $em)
+    {
+        if(!$gender)
+        {
+            $actorsCollection = $em->getRepository('BackendBundle:Gender')->findAll();
+            
+            foreach($actorsCollection as $genders)
+            {
+                if(!isset($count))
+                {
+                    $count = 0;
+                }
+                $count++;
+            }
+            $gender = $random = (int)rand(1, $count);
+            
+        }
+        return $gender;
     }
 
 }

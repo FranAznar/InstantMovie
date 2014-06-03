@@ -1,1 +1,5 @@
-Hello {{ name }}!
+  {% for pelicula in historial %}
+            <ul>
+                <li>has subido la pelicula {{pelicula.title}} </li>
+            </ul>
+        {% endfor %}

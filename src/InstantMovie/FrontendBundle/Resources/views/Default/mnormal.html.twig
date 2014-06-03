@@ -24,21 +24,19 @@ function mostrarInfoMovieClick(id){
         <div id= "catalogoView" class="panel">
             <h1>Selecciona una Pelicula de la Lista</h1>
         </div>
-        <div id= "catalogoLista" class="panel ">
-            <h3>Lista de Peliculas</h3>
 
         {% for movie in movies %}
             <ul>
-            <div id ="viewMovie" class="panel panel-info " onclick="mostrarInfoMovieClick('{{movie.id}}'); ">
-                <div class="panel-heading">
+            <div id ="viewMovie" class="panel " onclick="mostrarInfoMovieClick('{{movie.id}}'); ">
+                <div id="panel-heading" class="panel-heading">
                         <h4>{{movie.title}} </h4>
                 </div>
-                <div class="panel-body">
+                <div id="panel-body" class="panel-body">
                     <img class="img" src="{{movie.image}}" width="100%" height="150px">
                 </div>
             </div>
             </ul>
         {% endfor %}
 
-        </div>
+
     {% endblock %}

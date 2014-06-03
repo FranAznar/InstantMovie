@@ -5,29 +5,50 @@
 {% block id 'portada' %}
 
 {% block contenido %}
-    <div id= "menuLateral" class="panel">
-        <h3>novedades</h3>
-        <div id= "Comentarios" class="panel">
-           {% for novedades in historial %} <p class="panel comment">{{novedades.User}} <span class ="glyphicon glyphicon-arrow-right"></span>{{novedades.Movie}}: {{novedades.Comment}} <span class="glyphicon glyphicon-comment"</span></p>{% endfor %}
-        </div>
+        <div id= "menuLateral" class="panel">
+            <div class="padding10">
+                <h3>novedades</h3>
+                <div id= "Comentarios" class="panel">
+                        {% for novedades in historial %}{% if novedades.comment != "" %}<p class="panel comment">{{novedades.User}} <span class ="glyphicon glyphicon-arrow-right"></span> {{novedades.Movie}}:{{novedades.Comment}}</p>{% endif%}{% endfor %}
+                </div>
+
         <div id= "Puntuaciones" class="panel">
-            {% for upload in uploads %}<p class="panel comment">{{upload.SubidaPor}}<span class ="glyphicon glyphicon-arrow-right"></span> ha subido {{upload.Title}} <span class="glyphicon glyphicon-ok"></span></p>{% endfor %}
-           {% for novedades in historial %} <p class="panel comment">{{novedades.User}}<span class ="glyphicon glyphicon-arrow-right"> </span> puntua con un {{novedades.Valoration}}/10 {{novedades.Movie}} <span class="glyphicon glyphicon-ok"</span></p>{% endfor %}
-            
+                         {% for upload in uploads %}<p class="panel comment">{{upload.SubidaPor}}<span class ="glyphicon glyphicon-arrow-right"> </span> Ha subido {{upload.Title}}</p>{% endfor %}
+                        {% for novedades in historial %}{% if novedades.valoration != "" %} <p class="panel comment">{{novedades.User}}<span class ="glyphicon glyphicon-arrow-right"> </span> puntua con un {{novedades.Valoration}}/10 {{novedades.Movie}}</p>{% endif %}{% endfor %}
+                    
+                     </div>
+            </div>
         </div>
 
-    </div>
-    <div id= "trailer" class="panel">
-        <div id= "cajaTrailer" class="panel">
-            <iframe src="http://www.youtube.com/embed/M4sagNn4BNU" width="98%" height="98%" frameborder="0" allowfullscreen></iframe>
+     <div id= "trailer" class="panel">
+            <span class="padding10">
+                <div id= "cajaTrailer" class="panel">
+                    <iframe src="http://www.youtube.com/embed/M4sagNn4BNU" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div id= "cajaSynapsis" class="panel">
+                    <span class="padding10">
+                         <h3>Synopsis</h3>
+                         <p>John Rambo (Stallone), el ex-boina verde que llevaba una ajetreada vida marcada por la guerra, vive ahora una solitaria y apacible existencia en la jungla del norte de Tailandia, pescando y cazando cobras para venderlas. Todo cambia cuando un grupo de misioneros católicos le proponen que les sirva de guía hasta la frontera con Birmania...</p>
+                    </span>
+                </div>
+                <div class="clearfix"></div>
+            </span>
         </div>
-        <div id= "cajaSynapsis" class="panel">
-            <h3>Synapsis</h3>
+
+    <div id="noticias" class="panel">
+            <h3>noticias</h3>
+        <div id="noticia" class="panel">
+            <img src="{{ asset('bundles/frontend/images/Hobbit.jpg')}}" width="100%" height="100%">
+        </div>
+        <div id="descripcion" class="panel">
+            <h4>Peter Jackson desvela el nuevo título para El Hobbit 3</h4>
+            <p>La tercera y última película de El Hobbit tenía por título El Hobbit: Partida y regreso, pero su director Peter Jackson, también realizador de la trilogía de El Señor de los Anillos, acaba de hacer público que el nombre ha cambiado. "Partida y regreso hubiera sido un buen nombre para una saga de dos películas con la reconquista de Erebor como punto final. Porque la llegada de Bilbo y su marcha hubieran ocurrido en la segunda película. Pero con tres películas, de pronto se quedó sin significado... Después de todo, Bilbo ya estaba ahí en La desolación de Smaug". ¿Quieres saber cuál es el nuevo título?
+
+"Cuando hicimos la promoción el año pasado, mantuve una conversación secreta con Warner Bros. acerca de un posible cambio de título", prosigue el director Peter Jackson. "Y ambas partes acordamos mantener la mente abierta hasta que pudiéramos ver el resultado con el montaje final. Llegamos a ese punto la semana pasada y, después de ver la película, todos coincidimos en que era mejor cambiar el título... Así, hemos elegido The Battle of the Five Armies", algo así como La Batalla de los Cinco Ejércitos. "Como pretendía el profesor J.R.R. Tolkien, Partida y regreso resume toda la aventura de Bilbo (Martin Freeman)... Así que no te sorprendas si acabamos usándolo para una edición en DVD de las tres películas". El Hobbit: La Batalla de los Cinco Ejércitos se estrena el próximo 17 de diciembre.</p>
         </div>
     </div>
-    <div id= "noticias" class="panel">
-        <h3>noticias</h3>
-    </div>
+
+
 
 {% endblock %}
 

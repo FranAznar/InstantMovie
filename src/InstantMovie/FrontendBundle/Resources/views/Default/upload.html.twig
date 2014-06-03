@@ -68,7 +68,7 @@ sliderPuntuacion();
 
 <div class="panel-Upload panel" id="formUpload">
     <h1 class="h1">Sube Tus Peliculas Favoritas</h1>
-    <form id="formUpload" action="{{path('pagina_upload')}}" method="post">
+    <form  action="{{path('pagina_upload')}}" method="post">
         <div id="input-group"class="input-group titleUp">
              <span class="input-group-addon">Titulo</span>
             <input type="text" class="form-control" placeholder="Titulo" name="titleUp">
@@ -82,7 +82,7 @@ sliderPuntuacion();
             <input type="text" class="form-control" placeholder="Url" name="urlUp">
         </div>
 
-        <input type="text" id="introActor" class="form-control "  placeholder="Nombre del Actor" name="addActor"><input type="text" placeholder="Apellido del Actor" id="introActorLn" class="form-control " name="addActorLn"><input class="btn btn-lg btn-primary btn-addActor" value="Añadir"role="button"/>
+        <input type="text" id="introActor" class="form-control "  placeholder="Nombre del Actor" name="addActor"><input type="text" placeholder="Apellido del Actor" id="introActorLn" class="form-control " name="addActorLn"><input class="btn btn-lg btn-addActor" value="Añadir"role="button"/>
 
         <div id="actores">
         {% for actor in actors %}
@@ -96,7 +96,7 @@ sliderPuntuacion();
         {% endfor %}
         </div>
 
-        <input type="text" id="introDirector" class="form-control "placeholder="Nombre del Director"  name="addDirector"><input type="text" id="introDirectorLn" class="form-control " placeholder="Apellido del Director" name="addDirectorLn"><input class="btn btn-lg btn-primary btn-addDirector"  value="Añadir"role="button"/>
+        <input type="text" id="introDirector" class="form-control "placeholder="Nombre del Director"  name="addDirector"><input type="text" id="introDirectorLn" class="form-control " placeholder="Apellido del Director" name="addDirectorLn"><input class="btn btn-lg  btn-addDirector"  value="Añadir"role="button"/>
         <div id="directores">
         {% for director in directors %}
             <div id="direct" class="input-group">
@@ -145,24 +145,24 @@ sliderPuntuacion();
     </div>
         <div id="score">
             <h3>Como puntuarias esta pelicula?</h3>
-            <select name="minbeds" id="minbeds">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </select>
+            <select id="uplaodSelect" name="minbeds" id="minbeds">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
         </div>
             <input type="hidden" name="user_id" value="{{app.user.id}}"/>
         <div id="comment">
             <input type="text" class="form-control" name="comment" value="" placeholder="Escribe un comentario sobre la pelicula...">
         </div>
-        <input class="btn btn-lg btn-primary btn-Upload" type="submit" value="Subir Pelicula"role="button"/>
+        <input class="btn btn-lg btn-Upload" type="submit" value="Subir Pelicula"role="button"/>
     </form>
 </div>
 

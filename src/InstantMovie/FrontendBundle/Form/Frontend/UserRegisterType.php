@@ -25,6 +25,6 @@ public function buildForm(FormBuilderInterface $builder, array $options)
 
     public function getName()
     {
-        return 'lala';
+        return '';
     }
 }

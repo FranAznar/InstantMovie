@@ -1,14 +1,25 @@
 body{
-    position:relative;
+    position:absolute;
     width:1500px;
     height:880px;
-    left:10%;
+    left:8%;
+    background: url("../images/bg.jpg") repeat top center #888888;
 }
 
-#contenedor{
-    position:relative;
-    width:100%;
+#loguer{
+    position:absolute;
+    width:1500px;
+    height:880px;
+    left:8%;
+    background: url("../images/loguinBG1.jpg") repeat top center;
+
+}
+
+#contenedor {
+    margin: 0 auto;
+    width:1200px; 
     height:100%;
+    
 }
 
 article{
@@ -16,124 +27,317 @@ article{
     height:100%;
 }
 
-/*Seccion Peliculas*/
-#peliculas.custom-background {
-    background: -webkit-linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(left,black,black,#8A0808,#8A0808,red,black,black,#0080FF ,blue,blue,black,black); /* Standard syntax (must be last) */
+.navbar-brand {
+    color: #fefefe;
+    font-size: 20px;
 }
 
+a img.headicon {
+    display: block;
+    float: left;
+    width: 16px;
+    height: auto;
+    margin-right: 5px;
+    margin-top: 3px;
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+a:hover img.headicon {
+    opacity: 0.9;
+}
+
+#cajaPrincipal{
+    background-image: url("../images/loguinBG1.jpg");
+    background-position: 46.7% 10.5%;
+    background-repeat:no-repeat;
+    position:relative;
+    top:3%;
+    width:70%;
+    margin:0 auto;
+}
+
+#cajaLogins{
+    background-color: #DDDDDD;
+    text-align:center;
+}
+
+#registrar{
+    background-color: #DDDDDD;
+    text-align:center;
+}
+
+.btn-Regist{
+    position:relative;
+    background-color:#585858;
+    width:95%;
+    left: 2%;
+    color: #222;
+
+}
+
+#legal{
+    overflow:scroll;
+    width:100%;
+    height:400px;
+    background-color:white;
+}
+
+#loguerHead{
+    background-color:#222;
+    color: #ccc;
+    font-size: 20px;
+}
+
+/*Seccion Peliculas*/
+
 #opcion1{
-    background-color:black;
+    background: url("../images/bg.jpg") no-repeat top center #888888;
     background-position: 10%;
-    width:48%;
-    height:99%;
+    width:49%;
+    height:52%;
+    box-shadow: 15px 15px 6px #000000;
+    margin:0 auto;
 }
 
 #opcion2{
-    background-color: black;
+    background: url("../images/bg.jpg") no-repeat top center #888888;
     background-position: 10%;
-    width:48%;
-    height:99%;
+    width:49%;
+    height:52%;
+    box-shadow: 15px 6px 6px #000000;
+    margin:0 auto;
 }
 
 .btn-peli{
     width:100%;
     height: 10%;
     text-align:center;
+    background-color: #222;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size:20px;
+    color: #ccc;
+
 }
 
 .normal{
-    color:red;
-    font-family: Impact;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    color: #fefefe;
+    text-align:center;
+    background-color: #222;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 .aleatorio{
-    color:blue;
-    font-family: Impact;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    color: #fefefe;
+    text-align:center;
+    background-color: #222;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 .imagen{
     position:relative;
-    background-color: white;
-    top: 1%;
-    height: 40%;
+    background-color: black;
+    top: 0.5%;
+    height: 90%;
 }
 
 .txt{
     position:relative;
-    background-color: black;
+    background-color: #222;
     top:-1%;
-    height: 47%;
+    height: 8%;
+    box-shadow: 15px 15px 6px #000000;
+}
+
+#random-txt, #normal-txt, #normal-img, #random-img {
+    background-color:black;
+}
+
+#formRegister{
+    position:relative;
+    color:#222;
+    background-color:#DDDDDD;
+    width:96%;
+    left:2%;
+    
+}
+
+#registerSombra{
+    background-color:#222;
+    width:100%;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 /*Portada*/
 #trailer{
-    position:relative;
-    background-color: #819FF7;
-    width:75%;
-    height: 40%;
+
+    background-color: #222;
+    border-radius: 0;
+    float: left;
+    width: 48%;
+    height:38%;
+    position:fixed;
+    left:17%;
+    top:10%;
+    box-shadow: 15px 15px 6px #000000;
+}
+
+.icon {
+    display: block;
+    float: left;
+}
+
+.padding10 {
+    display: block;
+    padding: 10px;
+    height:80%;
+}
+
+.icon img {
+  display: block;
+    float: left;
+    height: 43px;
+    margin-right: 15px;
+    margin-top: 5px;
+    width: 43px;
+}
+
+.box {
+    display: block;
+    width: 100%;
+    background: #dddddd;
 }
 
 #noticias{
     float:left;
+    background-color: #222;
+    box-shadow: 2px 6px 6px #000000;
+    width: 48%;
+    height:42%;
+    position:fixed;
+    left:17%;
+    top:50%;
+    box-shadow: 15px 15px 6px #000000;
+}
+
+#descripcion{
+    width:58%;
+    float:right;
+    height:90%;
     position:relative;
-    background-color: #819FF7;
-    width:75%;
-    height: 58%;
+    left: -1%;
+    top: -95%;
+    background-color:#DDDDDD;
+    text-align:center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size:18px;
+    overflow:auto;
+}
+
+#noticia{
+    width:40%;
+    height:90%;
+    position:relative;
+    background-color:#DDDDDD;
+}
+
+#noticias h3 {
+    color: #ccc;
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    line-height: 26px;
+}
+
+.navbar-header {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    color: #fefefe;
 }
 
 #cajaTrailer{
-    float:left;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+    height: 120%;
+    width: 70%;
+    margin-bottom: 0;
+    margin-right: 10px;
     position:relative;
-    width:49%;
-    height: 98%;
-    top: 1%;
-    left:0.7%;
-    background-color:black;
+    top:3%;
+    left:1%;
 }
 
 #menuLateral{
-    float:right;
-    position:relative;
-    width: 23%;
-    height: 100%;
-    background-color: #819FF7;
+    position:fixed;
+    background-color: #222222;
+    border-radius: 0;
+    float: right;
+    width: 18%;
+    box-shadow: 15px 15px 6px #000000;
+    margin-bottom: 0;
+    height:82%;
+    overflow:auto;
+    top:10%;
+    left:66%;
+}
+
+#menuLateral h3 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 26px;
+    line-height: 26px;
+    color: #ccc;
+    margin: 0 0 10px;
 }
 
 #cajaSynapsis{
-    float:right;
+    background-color: #DDDDDD;
+    border-radius: 0;
+    float: right;
+    height:120%;
+    margin-bottom: 0;
+    width: 26%;
     position:relative;
-    width:49%;
-    height:98%;
-    top: 1%;
-    left:-0.7%;
-    background-color:white;
+    top:3%;
+    left:-1%;
+    color: #222;
+}
 
+#cajaSynapsis h3 {
+    margin: 0;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+    font-size: 26px;
+    line-height: 26px;
+}
+
+#cajaSynapsis p {
+    font-size: 12;
+    color: #666;
 }
 
 #Comentarios{
-    position:relative;
-    left:1%;
-    width: 98%;
-    height: 45%;
-    background-color:white;
+    background-color: #ddd;
+    border-radius: 0;
+    overflow:auto;
+    height:48%;
 }
 
 .comment{
-    background-color:#A9D0F5;
-    height:1%;
+    background-color:#DDDDDD;
+    height:15%;
+    overflow: hidden;
 }
 
 #Puntuaciones{
-    position:relative;
-    left:1%;
-    top: -2%;
-    width: 98%;
-    height: 48%;
-    background-color:white;
-
+    background-color:#ddd;
+    overflow:auto;
+    border-radius: 0;
+    height:67%;
 }
 
 /*reproductor*/
@@ -143,18 +347,15 @@ article{
     top: 1%;
 }
 
-
-
-/*Perfil*/
-.form-perfil{
-    position:relative;
-    top:0%;
-}
-
 /* Historial*/
 .div-historial{
 position:relative;
-top: 0%;
+    top: 0%;
+
+}
+
+.historialColor{
+color:#ccc;
 }
 
 .historialButon{
@@ -162,14 +363,59 @@ top: 0%;
     background-color:#A9D0F5;
 }
 
-.historialNavbar{
-    position:relative;
-    top: 16%;
-    height:50%;
+#historialNavbar{
+    position:fixed;
+    width:18%;
+    top: 13%;
+    left:15%;
+    height:24%;
+    color:#222;
+    z-index:3;
+}
+
+.botonesHistorial{
+    box-shadow: 15px 15px 6px #000000;
 }
 
 .div-historial{
     height:90%;
+}
+
+.historialTitulo{
+    text-align:center;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+    color:#ccc;
+}
+
+.btn-historial{
+    background-color:#ccc;
+    text-align:center;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+    color:#222;
+    position:relative;
+    left:0%;
+    top:10%;
+    width:100%;
+
+}
+
+
+#cabeceraTitulo{
+    position:relative;
+    width:100%;
+    background: url("../images/bg.jpg") no-repeat top center #888888;
+    left:35%;
+
+}
+
+#historialPanel{
+    position:relative;
+    background-color:#DDDDDD;
+    width:80%;
+    border:5px solid #222;
+    text-align:center;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+    left:8%;
 }
 
 /* make sidebar nav vertical */ 
@@ -196,19 +442,24 @@ top: 0%;
 
 #catalogoView{
     float:left;
-    position:relative;
-    width:74%;
-    height:99%;
-    background-color:#819FF7;
+    position:fixed;
+    width:50%;
+    height:80%;
+    background-color:#222;
+    box-shadow: 15px 15px 6px #000000;
+    text-align:center;
+    color:#ccc;
 }
 
 #catalogoLista{
-    overflow:scroll;
+    
     float:right;
     position:relative;
     width:24%;
     height:99%;
-    background-color:#819FF7;
+    background-color:#222;
+    left:10%;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 #imagenMovie{
@@ -218,17 +469,18 @@ top: 0%;
     height:39%;
     left:1%;
     top: 1%;
-    background-color:#F78181;
+    background-color:#DDDDDD;
 }
 
 #comentsMovie{
     float:left;
     position:relative;
     width:39%;
-    height:58%;
-    background-color:#A9F5A9;
+    height:57%;
+    background-color:#585858;
     left: 1%;
-    top: 2%;
+    top: -1%;
+    color:#222;
 }
 
 #infoMovie{
@@ -236,7 +488,7 @@ top: 0%;
     position:relative;
     width:58%;
     height: 98%;
-    background-color:#EFF8FB;
+    background-color:#222;
     top: 1%;
     left:-1%;
 }
@@ -251,54 +503,97 @@ top: 0%;
     left: -0.5%;
 }
 
+#verPelicula{
+    background-color:#585858;
+    color:#222;
+}
+
 /*View Movies Modo Normal*/
 
 #viewMovie{
     position:relative;
-    width: 98%;
-    height: 100%;
-    left: -7%;
+    width: 20%;
+    height: 20%;
+    left: 85%;
+    top:0.5%;
+    background-color: #222;
+    color:#222;
+    border:2px #ccc solid;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 #reparto{
     position: relative;
     width: 100%;
     height: 23%;
-    background-color:#A9D0F5;
+    background-color:#DDDDDD;
+    text-align:center;
+    color:#222;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+
 }
 
 #synapsis{
     position: relative;
     width:100%;
     height: 75%;
-    background-color: white;
+    background-color: #DDDDDD;
     top: -2%;
+    text-align:center;
+    color:#222;
+
+}
+
+#panel-heading , #panel-body{
+    text-align:center;
+    background-color:#222;
+    color:#ccc;
 }
 
 /*Comments page*/
 
-#botonComent {
+#botonScore {
     position:relative;
-    left:80%;
+    background-color:#ccc;
+    top:5%;
+    color:#222;
+    box-shadow: 15px 15px 6px #000000;
+}
+
+#hrefComment{
+color:#222;
+    background-color:#DDDDDD;
 }
 
 #textarea{
     top:2%;
     position:relative;
-    width: 70%;
-    height:10%;
+    width: 71%;
+    height:16%;
     left:10%;
-    background-color:white;
+    background-color:#222;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 #comentario{
     position:relative;
-    width: 70%;
-    height: 10%;
-    background-color: #A9D0F5;
+    width: 96%;
+    height: 92%;
+    background-color: #DDDDDD;
+    left:2%;
+    top:3%;
+
+}
+
+#sobraComentario{
+    position:relative;
+    background-color: #222;
+    width:72%;
+    height:14%;
+    left:10%;
     top:10%;
     margin-top: 3%;
-    left:10%;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 /*Estilos Mrandom*/
@@ -308,15 +603,17 @@ top: 0%;
     width: 100%;
     height: 49%;
     top: 0%;
-    background-color:#A9D0F5;
+    background-color:#222;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 #matizar{
     position:relative;
     width: 100%;
     height: 49%;
-    background-color:#A9D0F5;
+    background-color:#222;
     top: 0%;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 .imagenRandom{
@@ -325,12 +622,33 @@ top: 0%;
     top:-105%;
     width:78%;
     height:100.5%;
+    background-color:#222;
 }
 
 .infoModo{
     position:relative;
+    background-color:#222;
     width:21.6%;
     height:100%;
+    text-align:center;
+}
+
+#infoModo, #infoModoM{
+    background-color:#222;
+    border: 2px solid #ccc;
+}
+
+#imagenRandom, #imagenRandomN{
+    background-color:#222;
+}
+
+#randomSombra{
+    background-color:#DDDDDD;
+    position:relative;
+    width: 90%;
+    height: 90%;
+    top:3%;
+    left:5%;
 }
 
 #enlaces{
@@ -361,22 +679,66 @@ top: 0%;
 .btn-matizar{
     position:relative;
     width: 90%;
-    left:6%;
+    left:0%;
+    background-color:#585858;
+    top:7%;
+    color:#ccc;
+}
+
+#btn-random{
+    position:relative;
+    width: 90%;
+    left:0%;
+    background-color:#585858;
+    top:15%;
+    color:#ccc;
+}
+
+
+#infoModoSombra{
+    position:relative;
+    background-color: #DDDDDD;
+    width: 90%;
+    left:5%;
+    top:3%;
+    height: 35%;
+}
+
+
+
+.matizarForm
+{
+    background-color: #DDDDDD;
+    width:90%;
+    height:50%;
+    position:relative;
+    left:5%;
+    top: 5%;
 }
 
 .matizar{
     position:relative;
-    width: 90%;
-    border:2px solid;
-    border-radius:6px;
-<<<<<<< HEAD
-    height:12%;
-=======
-    height:22%;
->>>>>>> master
-    margin-top:10%;
-    left:6%;
+    top:15%;
 }
+
+.director {
+    position:relative;
+    top: 15%;
+    left: -2.5%;
+}
+
+.gender{
+    position:relative;
+    top: 32%;
+    left: -54.5%;
+}
+
+.actor{
+    position:relative;
+    top: 40%;
+    left: -20%;
+}
+
 
 /*pagina de Enlaces*/
 
@@ -408,13 +770,20 @@ top: 0%;
 #input-group{
     position:relative;
     margin-bottom:3%;
+    background-color:#222;
 
 }
 
 #formUpload{
     position:relative;
     height: 100%;
+    background: url("../images/bg.jpg") no-repeat top center #888888;
+    color:#ccc;
+    text-align:center;
+    box-shadow: 15px 15px 6px #000000;
 }
+
+
 
 .form-control{
     position:relative;
@@ -425,22 +794,25 @@ top: 0%;
     background-color:red;
 }
 
-#directores{
-    margin-top:5%;
-}
-
 .btn-Upload{
     position:relative;
     width:100%;
+    background-color:#585858;
+    color:#222;
+    box-shadow: 15px 15px 6px #000000;
 }
 
 .h1{
-    position:relative;
-    left:25%;
+    color:#222;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+}
+
+#uplaodSelect{
+    color:#222;
 }
 
 #actores{
-    background-color:#A9D0F5;
+    background-color:#DDDDDD;
     width:100%;
     height:20%;
     overflow:scroll;
@@ -448,55 +820,60 @@ top: 0%;
 }
 
 #directores{
-    background-color:#A9D0F5;
+    background-color:#DDDDDD;
     width:100%;
     height:20%;
     overflow:scroll;
     margin-bottom: 2%;
+    margin-top:5%;
 }
 
 
 .btn-addActor{
     position:relative;
     float:right;
-    width:10%;
-    left:0%;
+    width:11%;
+    left:-0.1%;
+    color:#222;
     top:-2%;
+    background-color:#585858;
 }
 
 #introActor{
     position:relative;
     float:left;
-    width:45%;
+    width:44%;
     top:-1%;
 }
 
 #introActorLn{
     position:relative;
     float:left;
-    width:45%;
+    width:44%;
     top:-1%;
 }
 
 .btn-addDirector{
     position:relative;
     float:right;
-    width:10%;
-    left:0%;
+    width:11%;
+    left:-0.1%;
     top:-1%;
+    background-color:#585858;
+    color:#222;
 }
 
 #introDirector{
     position:relative;
     float:left;
-    width:45%;
+    width:44%;
     top:0%;
 }
 
 #introDirectorLn{
     position:relative;
     float:left;
-    width:45%;
+    width:44%;
     top:0%;
 }
 
@@ -523,7 +900,11 @@ top: 0%;
 }
 
 #comment{
-    margin-bottom: 2%;
+    margin-bottom: 4%;
+    top:8%;
+    width:98%;
+    left:1%;
+
 
 }
 
@@ -541,12 +922,64 @@ top: 0%;
 }
 
 #viewMovie1{
-    float:left;
     position:relative;
-    width: 18%;
-    height: 35%;
-    left: 1%;
-    top: 1%;
-    margin-right:1%;
+    float:left;
+    width: 23%;
+    height: 39%;
+    left: 0%;
+    top:0.5%;
+    background-color: #222;
+    border:2px #ccc solid;
+    box-shadow: 15px 15px 6px #000000;
+    margin-left:2%;
+}
 
+#panel-bodyC{
+    width:80%;
+    height:80%;
+}
+
+/*Perfil*/
+#perfil{
+    width:70%;
+    height:60%;
+    background-color:#222;
+    left:20%;
+    box-shadow: 15px 15px 6px #000000;
+}
+
+#perfilSombra{
+    position:relative;
+    left:1%;
+    top:1%;
+    width:98%;
+    height: 98%;
+    background-color:#DDDDDD;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+}
+
+.btn-boton{
+    background-color:#585858; 
+    width:48%;
+    position:relative;
+    left: 0%;
+    margin-left:1%;
+    margin-top:3%;
+    margin-bottom:3%;
+    top:-2%;
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+    color:#ccc;
+}
+
+#form-perfil{
+    position:relative;
+    top:0%;
+    width:100%;
+    height:100%;
+}
+
+.historialLink{
+    font-family: 'Yanone Kaffeeslsatz', sans-serif;
+    color:#ccc;
+    background-color:#585858;
 }

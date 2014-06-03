@@ -13,15 +13,27 @@ use InstantMovie\FrontendBundle\Form\Frontend\UserRegisterType;
 
 class DefaultController extends Controller
 {
-
+    
 # renderiza la portada
     public function portadaAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $historialCollection = $em->getRepository('BackendBundle:RelUserMovie')->findAll();
-        $uploadCollection = $em->getRepository('BackendBundle:Movie')->findAll();
+        $historialCollection = $this->getHistorialCollection($em);
+        $uploadCollection = $this->getUploadCollection($em);
 
         return $this->render('FrontendBundle:Default:portada.html.twig', array('historial' => $historialCollection, 'uploads' => $uploadCollection));
+    }
+
+    public function getHistorialCollection($em)
+    {
+        $historialCollection = $em->getRepository('BackendBundle:RelUserMovie')->findAll();
+        return $historialCollection;
+    }
+
+    public function getUploadCollection($em)
+    {
+         $uploadCollection = $em->getRepository('BackendBundle:Movie')->findAll();
+         return $uploadCollection;
     }
 
 # Permisos del usuario
