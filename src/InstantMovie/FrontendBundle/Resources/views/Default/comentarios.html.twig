@@ -22,6 +22,7 @@ function mostrarComentario(movieId,userId){
             comment: comment,
 
         }).done(function(data){
+            $('#loadingDiv').fadeIn('fast');
              $.post('{{path("pull_in_queue")}}',
             {
                 token:aleatorio,
@@ -39,7 +40,8 @@ function mostrarComentario(movieId,userId){
                     isReady = data;
                     console.log('response isready:'+ isReady);
                 }
-                 $('#sobraComentario').after('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
+                $('#loadingDiv').fadeOut('fast');
+                $('#sobraComentario').before('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
                 },'json');
                 });
              console.log('the proces is finished');
@@ -53,6 +55,7 @@ function sleep(milliSeconds){
     while (new Date().getTime() < startTime + milliSeconds); 
 }
 </script>
+    <div id="loadingDiv"><img id="loading" src="{{ asset('bundles/frontend/images/loading.gif') }}" width="30%" height="30%" ></div>
 
     <ul class="nav nav-tabs nav-perfil">
         <li><a  id="hrefComment" href="{{ path('pagina_mnormal') }}">Informacion de la Pelicula</a></li>
