@@ -22,7 +22,8 @@ function mostrarComentario(movieId,userId){
             comment: comment,
             
         }).done(function(data){
-                $('#loadingDiv').fadeIn('fast');
+            $('#loadingDiv').fadeIn('fast');
+
              $.post('{{path("pull_in_queue")}}',
             {
                 token:aleatorio,
@@ -42,9 +43,10 @@ function mostrarComentario(movieId,userId){
                     isReady = data;
                     console.log('response isready:'+ isReady);
                 }
-                
-                 $('#sobraComentario').before('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
-                 $('#loadingDiv').fadeOut('fast');
+
+                $('#loadingDiv').fadeOut('fast');
+                $('#sobraComentario').before('<div id="sobraComentario"><div id="comentario" class ="panel"><p id="load" >'+comment+'</p></div></div>');
+
                 },'json');
                 });
              console.log('the proces is finished');
@@ -58,6 +60,7 @@ function sleep(milliSeconds){
 }
 
 </script>
+    <div id="loadingDiv"><img id="loading" src="{{ asset('bundles/frontend/images/loading.gif') }}" width="30%" height="30%" ></div>
 
 <div id="loadingDiv"><img id="loading" alt="" width="70%" height="80%" src="{{ asset('bundles/frontend/images/loading.gif') }}"></div>
     <ul class="nav nav-tabs nav-perfil">
